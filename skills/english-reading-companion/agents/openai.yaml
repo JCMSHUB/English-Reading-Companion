@@ -1,0 +1,11 @@
+interface:
+  display_name: English Reading Companion
+  short_description: Read stories through language, thought, and subtext
+  default_prompt: Use my English Reading Companion method to analyze this article.
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

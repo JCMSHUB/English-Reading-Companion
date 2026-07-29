@@ -1,0 +1,12 @@
+interface:
+  display_name: English Reading A/B Workflow
+  short_description: Compare baseline and skilled English reading analyses
+  default_prompt: Run the three-output English Reading A/B workflow on this source
+    text.
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
