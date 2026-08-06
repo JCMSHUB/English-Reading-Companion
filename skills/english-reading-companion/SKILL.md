@@ -5,7 +5,21 @@ description: "Analyze English stories and short essays with the user's English R
 
 # English Reading Companion
 
+**Current version:** 1.0.0
+**Release:** 2026-08-06 · REG-20260806-001
+
 Apply the user's stable reading method. Build English intuition rather than produce a translation or grammar lecture.
+
+## Version visibility
+
+- Read `VERSION` before producing any analysis and require it to match the version declared above.
+- Begin every user-visible analysis with this exact line immediately after any YAML frontmatter and title:
+
+  `> Skill: english-reading-companion v1.0.0`
+
+- When saving a companion Markdown file, set `skill: "english-reading-companion"` and `skill_version: "1.0.0"` in its YAML frontmatter.
+- Include the same skill name and version in the concise chat handoff that links or summarizes a saved artifact.
+- Stop and report a version mismatch instead of guessing which version is active.
 
 ## Core objective
 

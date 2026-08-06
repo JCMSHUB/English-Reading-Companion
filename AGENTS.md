@@ -85,6 +85,8 @@ Codex 不应：
 - 正式内容保存在 `content/readings/`。
 - 文件名格式：`NNN-english-slug.md`。
 - 必须显示实际使用的技能名称和版本。
+- 技能版本以对应目录的 `VERSION` 为机器可读来源，并须与 `SKILL.md`、`agents/openai.yaml` 及输出元数据一致。
+- 调用技能时必须在用户可见输出中显示当前版本；版本缺失或不一致时停止生成并报告。
 - 必须生成符合文章内核的中文伴读标题。
 - 必须覆盖 Story、Language、Thinking、Beyond the Words。
 - 优先分析高价值表达，不生成孤立词汇表。
@@ -205,4 +207,3 @@ docs(project): clarify local-first workflow
 4. 是否存在失败、风险或待确认事项。
 
 如果任务只完成了一部分，必须明确说明边界，不得把部分结果描述为完整完成。
-

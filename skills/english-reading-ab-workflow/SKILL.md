@@ -5,7 +5,21 @@ description: "Run a controlled three-output English Reading A/B workflow from on
 
 # English Reading A/B Workflow
 
+**Current version:** 1.0.0
+**Release:** 2026-08-06 · REG-20260806-001
+
 Produce a reproducible comparison from one authoritative source text. Generate three downloadable Markdown artifacts, not merely three chat sections.
+
+## Version visibility
+
+- Read this skill's `VERSION` and require it to match the version declared above.
+- Locate the installed `english-reading-companion` package and read only its `VERSION` file before starting the baseline. Do not read its `SKILL.md` or method references until the skilled branch begins.
+- Begin the user-visible workflow response with:
+
+  `> Skills: english-reading-ab-workflow v1.0.0; english-reading-companion v<installed-version>`
+
+- Record both versions in the comparison artifact. Record `workflow_skill` and `workflow_skill_version` in all three artifacts; record `skill` and `skill_version` in the skilled artifact.
+- Stop and report the blocker when either version is missing, malformed, or inconsistent. Never infer a version from memory.
 
 ## Required outputs
 
@@ -49,6 +63,7 @@ Write and finalize the baseline file before starting the skilled branch. Do not 
 Locate and apply the installed skill whose frontmatter name is `english-reading-companion`.
 
 - Follow that skill and its referenced method files faithfully.
+- Confirm its `SKILL.md` version declaration matches the `VERSION` value read before the baseline.
 - Use the same normalized source as the baseline.
 - Generate a complete standalone analysis; do not mention the baseline or the comparison experiment.
 - Write and finalize the skilled file before comparing.
@@ -77,6 +92,7 @@ Before delivery, confirm:
 
 - all three files exist and are valid UTF-8 Markdown;
 - filenames share the same number and slug;
+- displayed and recorded skill versions match the corresponding `VERSION` files;
 - both analyses use the same source text;
 - the baseline contains no companion-only fixed framework leakage;
 - the skilled file is understandable without the comparison report;

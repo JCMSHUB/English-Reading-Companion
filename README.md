@@ -125,7 +125,10 @@ status: "draft | reviewed | final"
 要求：
 
 - `article_id` 与文件名前缀一致。
-- `skill_version` 必须是真实使用的技能版本。
+- 每个技能目录以 `VERSION` 文件记录机器可读版本；该值必须与 `SKILL.md` 和 `agents/openai.yaml` 中显示的版本一致。
+- `skill_version` 必须来自实际调用技能的 `VERSION`，不得凭记忆填写。
+- 每次伴读调用必须在用户可见输出中显示 `> Skill: english-reading-companion vX.Y.Z`。
+- A/B 工作流必须同时显示自身版本和实际调用的伴读技能版本。
 - 未执行回归测试时，`regression_report` 填写 `not-run`。
 - 正式归档前将 `status` 更新为 `final`。
 
@@ -231,4 +234,3 @@ MAJOR.MINOR.PATCH
 ## 10. 当前项目边界
 
 本项目不依赖 ChatGPT Web 与桌面客户端之间的项目同步。任何未写入本地目录的对话输出，都视为尚未归档的临时结果。
-

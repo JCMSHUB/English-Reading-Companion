@@ -1,8 +1,8 @@
 interface:
-  display_name: English Reading A/B Workflow
+  display_name: English Reading A/B Workflow v1.0.0
   short_description: Compare baseline and skilled English reading analyses
-  default_prompt: Run the three-output English Reading A/B workflow on this source
-    text.
+  default_prompt: Run the three-output English Reading A/B workflow and state both
+    active skill versions before processing this source text.
 policy:
   products:
   - chatgpt
