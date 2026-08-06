@@ -4,6 +4,12 @@
 
 ## 2026-08-06
 
+### english-reading-companion 1.0.1 · REG-20260806-002
+
+- 将完整文章伴读的本地落盘提升为必需交付：必须保存到 `content/readings/NNN-english-slug.md`，不得只留在对话中。
+- 要求保存前确认来源文件、文章编号、英文 slug 与标题；信息不完整时停止询问。
+- 要求新产物以 `draft` 保存、不得静默覆盖既有伴读，并在交付中报告已验证的本地路径。
+
 ### english-reading-companion 1.0.0 · REG-20260806-001
 
 - 建立首个正式项目版本。

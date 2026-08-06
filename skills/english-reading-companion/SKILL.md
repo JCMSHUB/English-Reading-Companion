@@ -5,8 +5,8 @@ description: "Analyze English stories and short essays with the user's English R
 
 # English Reading Companion
 
-**Current version:** 1.0.0
-**Release:** 2026-08-06 · REG-20260806-001
+**Current version:** 1.0.1
+**Release:** 2026-08-06 · REG-20260806-002
 
 Apply the user's stable reading method. Build English intuition rather than produce a translation or grammar lecture.
 
@@ -15,9 +15,12 @@ Apply the user's stable reading method. Build English intuition rather than prod
 - Read `VERSION` before producing any analysis and require it to match the version declared above.
 - Begin every user-visible analysis with this exact line immediately after any YAML frontmatter and title:
 
-  `> Skill: english-reading-companion v1.0.0`
+  `> Skill: english-reading-companion v1.0.1`
 
-- When saving a companion Markdown file, set `skill: "english-reading-companion"` and `skill_version: "1.0.0"` in its YAML frontmatter.
+- For every full-article companion, save the completed analysis as `content/readings/NNN-english-slug.md`; do not leave the result only in chat. Do this before sending the final handoff.
+- Before generating, confirm the source text is available under `content/sources/`, and identify its three-digit article ID, lowercase English slug, and source title. If any is missing or ambiguous, stop and ask the user instead of inventing a filename or silently skipping the save.
+- Save new analyses with `status: "draft"`. Never overwrite an existing companion file without the user's explicit confirmation.
+- Set `skill: "english-reading-companion"` and `skill_version: "1.0.1"` in the saved file's YAML frontmatter.
 - Include the same skill name and version in the concise chat handoff that links or summarizes a saved artifact.
 - Stop and report a version mismatch instead of guessing which version is active.
 
@@ -51,7 +54,7 @@ Treat the four layers as a reasoning sequence, not four independent labels.
 
 ### 1. Verify the source text
 
-- Use the user's latest supplied text or image as authoritative.
+- Use the source file under `content/sources/` as authoritative. If the user supplies corrected text or an image, save it there first after confirming the target filename.
 - Silently correct obvious OCR artifacts only when certain; flag any uncertainty that affects interpretation.
 - If a malformed phrase changes the meaning, state the assumed reading briefly.
 
@@ -135,6 +138,12 @@ Synthesize earlier findings without repeating their language analysis. Add only 
 - Write a memorable English **One-sentence Takeaway** that captures the article without becoming a generic slogan.
 - Offer one focused **30-second Reflection** prompt answerable in one or two sentences.
 - Do not answer the reflection on the user's behalf unless asked.
+
+### 10. Save and hand off the artifact
+
+- Write the completed full-article companion to `content/readings/NNN-english-slug.md` using the source file's ID and slug.
+- Include YAML frontmatter with `article_id`, `source_title`, `companion_title`, `skill`, `skill_version`, `generated_at`, `regression_report`, and `status`.
+- Verify the file exists and report its local path in the final handoff.
 
 ## Default output
 

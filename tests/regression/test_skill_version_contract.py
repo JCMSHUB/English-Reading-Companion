@@ -31,6 +31,20 @@ class SkillVersionContractTest(unittest.TestCase):
         self.assertIn(f"> Skill: english-reading-companion v{version}", skill_text)
         self.assertIn(f'skill_version: "{version}"', skill_text)
 
+    def test_full_article_companion_requires_local_artifact(self):
+        skill_text = (
+            SKILLS / "english-reading-companion" / "SKILL.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn(
+            "save the completed analysis as `content/readings/NNN-english-slug.md`",
+            skill_text,
+        )
+        self.assertIn("do not leave the result only in chat", skill_text)
+        self.assertIn("`content/sources/`", skill_text)
+        self.assertIn("Never overwrite an existing companion file", skill_text)
+        self.assertIn("### 10. Save and hand off the artifact", skill_text)
+
     def test_ab_workflow_displays_both_versions(self):
         version = self.assert_common_contract("english-reading-ab-workflow")
         skill_text = (

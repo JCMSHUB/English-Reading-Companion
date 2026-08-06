@@ -1,5 +1,5 @@
 interface:
-  display_name: English Reading Companion v1.0.0
+  display_name: English Reading Companion v1.0.1
   short_description: Read stories through language, thought, and subtext
   default_prompt: Use English Reading Companion and state its current version before analyzing this article.
 policy:
