@@ -45,7 +45,32 @@ class SkillVersionContractTest(unittest.TestCase):
         self.assertIn("do not leave the result only in chat", skill_text)
         self.assertIn("`content/sources/`", skill_text)
         self.assertIn("Never overwrite an existing companion file", skill_text)
-        self.assertIn("### 10. Save and hand off the artifact", skill_text)
+        self.assertIn("### 11. Save and hand off the artifact", skill_text)
+
+    def test_full_article_companion_quotes_the_authoritative_source(self):
+        skill_text = (
+            SKILLS / "english-reading-companion" / "SKILL.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("### 3. Show the source for side-by-side reading", skill_text)
+        self.assertIn("## Original Text / 对照原文", skill_text)
+        self.assertIn("Markdown blockquotes", skill_text)
+        self.assertIn("one `>`-prefixed paragraph per source paragraph", skill_text)
+        self.assertIn("Preserve its title, byline, spelling, punctuation, and paragraph breaks", skill_text)
+        self.assertIn("single full-text display", skill_text)
+
+    def test_companion_uses_scan_friendly_readability_patterns(self):
+        skill_text = (
+            SKILLS / "english-reading-companion" / "SKILL.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("Reading Route / 阅读路线", skill_text)
+        self.assertIn("under 35 Chinese characters", skill_text)
+        self.assertIn("Do not put it in `details`, tabs, or a table", skill_text)
+        self.assertIn("Meaning in context（语境含义）", skill_text)
+        self.assertIn("Why it matters（值得注意）", skill_text)
+        self.assertIn("Try it（可迁移用法）", skill_text)
+        self.assertIn("Keep the whole entry to 2–4 short sentences", skill_text)
 
     def test_companion_metadata_is_hidden_from_readers(self):
         required_fields = [

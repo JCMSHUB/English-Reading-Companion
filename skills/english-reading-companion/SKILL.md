@@ -5,8 +5,8 @@ description: "Analyze English stories and short essays with the user's English R
 
 # English Reading Companion
 
-**Current version:** 2.0.0
-**Release:** 2026-08-06 · REG-20260806-003
+**Current version:** 2.2.0
+**Release:** 2026-08-06 · REG-20260806-005
 
 Apply the user's stable reading method. Build English intuition rather than produce a translation or grammar lecture.
 
@@ -15,12 +15,12 @@ Apply the user's stable reading method. Build English intuition rather than prod
 - Read `VERSION` before producing any analysis and require it to match the version declared above.
 - Begin every user-visible analysis with this exact line immediately after the title:
 
-  `> Skill: english-reading-companion v2.0.0`
+  `> Skill: english-reading-companion v2.2.0`
 
 - For every full-article companion, save the completed analysis as `content/readings/NNN-english-slug.md`; do not leave the result only in chat. Do this before sending the final handoff.
 - Before generating, confirm the source text is available under `content/sources/`, and identify its three-digit article ID, lowercase English slug, and source title. If any is missing or ambiguous, stop and ask the user instead of inventing a filename or silently skipping the save.
 - Save new analyses with `status: "draft"`. Never overwrite an existing companion file without the user's explicit confirmation.
-- Store `skill: "english-reading-companion"` and `skill_version: "2.0.0"` in the saved file's hidden metadata comment.
+- Store `skill: "english-reading-companion"` and `skill_version: "2.2.0"` in the saved file's hidden metadata comment.
 - Include the same skill name and version in the concise chat handoff that links or summarizes a saved artifact.
 - Stop and report a version mismatch instead of guessing which version is active.
 
@@ -49,6 +49,7 @@ Treat the four layers as a reasoning sequence, not four independent labels.
 - Preserve ambiguity when the text does not support a single interpretation.
 - Keep the experience sustainable: clear, thoughtful, and normally readable in 5–15 minutes.
 - Use Chinese for explanation and retain the important English wording being studied.
+- Use short labels and short paragraphs to make scanning easy; do not use tables for the main analysis, because they read poorly on narrow screens.
 
 ## Workflow
 
@@ -70,13 +71,23 @@ Read the entire piece before extracting language points. Establish:
 
 Open with a concise **Story Summary**. Do not front-load vocabulary.
 
-### 3. Trace the narrative
+Immediately after it, add one quoted **Reading Route / 阅读路线** sentence that tells the reader what to read next: the source text, then the story or language focus, and finally the deeper meaning. Keep it specific to the article and under 35 Chinese characters where possible.
+
+### 3. Show the source for side-by-side reading
+
+- After **First Reading / Story Summary** and before any detailed analysis, add `## Original Text / 对照原文`.
+- Reproduce the authoritative English source in Markdown blockquotes, one `>`-prefixed paragraph per source paragraph. Preserve its title, byline, spelling, punctuation, and paragraph breaks; do not translate, summarize, correct uncertain text, or insert analysis inside this section.
+- Use a blockquote heading for the source title when it is not already clear from the companion title. Keep author or source credit as a separate quoted line when present.
+- Treat this section as the single full-text display. Quote shorter excerpts elsewhere only when necessary for the analysis, so that duplication does not overwhelm the reading experience.
+- Keep the original text directly visible. Do not put it in `details`, tabs, or a table unless the user explicitly asks, because those formats are less reliable across Markdown readers and make comparison less immediate.
+
+### 4. Trace the narrative
 
 Use a short paragraph breakdown only when it materially clarifies progression. Explain the role of each paragraph or movement, such as setup, contrast, escalation, reveal, reinterpretation, or closure.
 
 State where the narrative turn occurs and what it changes. Reserve detailed language interpretation for its primary section.
 
-### 4. Choose the Memorable Line
+### 5. Choose the Memorable Line
 
 Select one sentence central to both language and meaning. Explain:
 
@@ -88,7 +99,7 @@ Do not choose a sentence merely because it sounds inspirational.
 
 If the sentence also requires Beyond the Words analysis, identify that need briefly here and reserve the full interpretation for that section. Do not retell the entire theme around the line.
 
-### 5. Analyze Key Expressions
+### 6. Analyze Key Expressions
 
 Choose 3–5 expressions using this priority:
 
@@ -97,11 +108,11 @@ Choose 3–5 expressions using this priority:
 3. natural collocations;
 4. high-frequency vocabulary only when context changes its force.
 
-For each item, give the contextual meaning, usage or tone, and one concise reusable example when helpful. Avoid dictionary-style synonym lists.
+For each item, use this compact scan-friendly sequence: **Meaning in context（语境含义）**, **Why it matters（值得注意）**, and **Try it（可迁移用法）**. State usage or tone in the first two parts, and omit the final part only when an example would not help. Keep the whole entry to 2–4 short sentences. Avoid dictionary-style synonym lists.
 
 When an expression also belongs in Beyond the Words, keep its entry here concise and reserve the full contextual interpretation for that section.
 
-### 6. Go Beyond the Words
+### 7. Go Beyond the Words
 
 Make this the signature section. Inspect seemingly simple phrases for:
 
@@ -117,7 +128,7 @@ Never restrict this section to formal idioms. A plain sentence can carry the dee
 
 Treat this as the primary section for full analysis of non-literal meaning. Avoid repeating an explanation already completed elsewhere unless adding a distinct contextual layer.
 
-### 7. Explain Language Patterns and Writing Style
+### 8. Explain Language Patterns and Writing Style
 
 Identify only patterns worth reusing or noticing. Discuss sentence architecture when it creates rhythm, suspense, contrast, compression, viewpoint, or emotional force. Use **Sentence Workshop** for one or two sentences only when detailed parsing is genuinely useful.
 
@@ -125,7 +136,7 @@ Avoid turning the article into a comprehensive grammar lesson.
 
 Explain what formal choice creates the effect. Do not use this section to restate the story's theme.
 
-### 8. Reach Deep Understanding
+### 9. Reach Deep Understanding
 
 Answer: **What is the author really trying to say?**
 
@@ -133,13 +144,13 @@ Connect the events to the author's viewpoint and theme. Ground the interpretatio
 
 Synthesize earlier findings without repeating their language analysis. Add only the higher-level viewpoint or theme that emerges from them.
 
-### 9. Close with active output
+### 10. Close with active output
 
 - Write a memorable English **One-sentence Takeaway** that captures the article without becoming a generic slogan.
 - Offer one focused **30-second Reflection** prompt answerable in one or two sentences.
 - Do not answer the reflection on the user's behalf unless asked.
 
-### 10. Save and hand off the artifact
+### 11. Save and hand off the artifact
 
 - Write the completed full-article companion to `content/readings/NNN-english-slug.md` using the source file's ID and slug.
 - Begin the file with an HTML comment containing `article_id`, `source_title`, `companion_title`, `skill`, `skill_version`, `generated_at`, `regression_report`, and `status`. This preserves local validation metadata without presenting engineering fields to the reader.
@@ -150,16 +161,18 @@ Synthesize earlier findings without repeating their language analysis. Add only 
 Use the following order, adapting section depth to the article:
 
 1. **First Reading / Story Summary（先理解故事）**
-2. **Story Flow / Paragraph Breakdown** — only when useful
-3. **Memorable Line**
-4. **Key Expressions（3–5）**
-5. **Beyond the Words（字面之外）**
-6. **Language Patterns（值得积累的表达）**
-7. **Writing Style（作者写作技巧）**
-8. **Deep Understanding / Theme（作者真正想说什么）**
-9. **One-sentence Takeaway**
-10. **30-second Reflection**
-11. **Sentence Workshop** — optional; place near the sentence it supports if that reads better
+2. **Reading Route / 阅读路线** — one short quoted sentence
+3. **Original Text / 对照原文** — quote the complete source text, preserving paragraph breaks
+4. **Story Flow / Paragraph Breakdown** — only when useful
+5. **Memorable Line**
+6. **Key Expressions（3–5）**
+7. **Beyond the Words（字面之外）**
+8. **Language Patterns（值得积累的表达）**
+9. **Writing Style（作者写作技巧）**
+10. **Deep Understanding / Theme（作者真正想说什么）**
+11. **One-sentence Takeaway**
+12. **30-second Reflection**
+13. **Sentence Workshop** — optional; place near the sentence it supports if that reads better
 
 Do not force empty or repetitive sections. Merge adjacent sections when they would repeat the same core insight or when the article does not contain enough independent material to justify separate treatment. Base this decision on information density and complexity, not word count alone. Always preserve Story, Language, Thinking, and Beyond the Words.
 
@@ -186,3 +199,5 @@ Before responding, verify:
 - Does every section add information not already fully explained elsewhere?
 - Has each core insight been assigned one primary section?
 - Can any repeated paragraph be replaced with a brief reference without losing meaning?
+- Does the Reading Route give a useful next step without repeating the summary?
+- Does every Key Expressions entry use the compact Meaning, Why it matters, and Try it sequence?
