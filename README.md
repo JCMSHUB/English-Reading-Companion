@@ -107,10 +107,10 @@ reports/regression/REG-20260729-001.md
 
 ## 5. 伴读内容元数据
 
-每篇正式伴读文件开头应包含：
+每篇正式伴读文件开头应包含不显示给读者的元数据注释：
 
-```yaml
----
+```html
+<!--
 article_id: "001"
 source_title: "Let Him Go, Olivia"
 companion_title: "在放手之前：一位母亲拒绝接受终点"
@@ -119,7 +119,7 @@ skill_version: "x.y.z"
 generated_at: "YYYY-MM-DD"
 regression_report: "REG-YYYYMMDD-NNN"
 status: "draft | reviewed | final"
----
+-->
 ```
 
 要求：
@@ -127,7 +127,7 @@ status: "draft | reviewed | final"
 - `article_id` 与文件名前缀一致。
 - 每个技能目录以 `VERSION` 文件记录机器可读版本；该值必须与 `SKILL.md` 和 `agents/openai.yaml` 中显示的版本一致。
 - `skill_version` 必须来自实际调用技能的 `VERSION`，不得凭记忆填写。
-- 每次伴读调用必须在用户可见输出中显示 `> Skill: english-reading-companion vX.Y.Z`。
+- 每次伴读调用必须在标题下方显示 `> Skill: english-reading-companion vX.Y.Z`。
 - A/B 工作流必须同时显示自身版本和实际调用的伴读技能版本。
 - 未执行回归测试时，`regression_report` 填写 `not-run`。
 - 正式归档前将 `status` 更新为 `final`。

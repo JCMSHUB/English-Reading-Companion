@@ -30,6 +30,8 @@ class SkillVersionContractTest(unittest.TestCase):
 
         self.assertIn(f"> Skill: english-reading-companion v{version}", skill_text)
         self.assertIn(f'skill_version: "{version}"', skill_text)
+        self.assertIn("hidden metadata comment", skill_text)
+        self.assertNotIn("YAML frontmatter", skill_text)
 
     def test_full_article_companion_requires_local_artifact(self):
         skill_text = (
@@ -44,6 +46,26 @@ class SkillVersionContractTest(unittest.TestCase):
         self.assertIn("`content/sources/`", skill_text)
         self.assertIn("Never overwrite an existing companion file", skill_text)
         self.assertIn("### 10. Save and hand off the artifact", skill_text)
+
+    def test_companion_metadata_is_hidden_from_readers(self):
+        required_fields = [
+            "article_id:",
+            "source_title:",
+            "companion_title:",
+            "skill:",
+            "skill_version:",
+            "generated_at:",
+            "regression_report:",
+            "status:",
+        ]
+
+        for path in sorted((ROOT / "content" / "readings").glob("*.md")):
+            text = path.read_text(encoding="utf-8")
+            self.assertTrue(text.startswith("<!--\n"), str(path))
+            self.assertIn("-->\n\n# ", text)
+            self.assertNotIn("\n---\n", text)
+            for field in required_fields:
+                self.assertIn(field, text, f"{path}: {field}")
 
     def test_ab_workflow_displays_both_versions(self):
         version = self.assert_common_contract("english-reading-ab-workflow")

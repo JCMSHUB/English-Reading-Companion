@@ -4,6 +4,11 @@
 
 ## 2026-08-06
 
+### english-reading-companion 2.0.0 · REG-20260806-003
+
+- 将伴读文件开头的 YAML 元数据改为 HTML 注释，避免阅读端将工程字段渲染为表格。
+- 保留原有机器校验字段，但不再将其展示给读者；两份既有草稿已迁移。
+
 ### english-reading-companion 1.0.1 · REG-20260806-002
 
 - 将完整文章伴读的本地落盘提升为必需交付：必须保存到 `content/readings/NNN-english-slug.md`，不得只留在对话中。

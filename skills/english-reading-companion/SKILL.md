@@ -5,22 +5,22 @@ description: "Analyze English stories and short essays with the user's English R
 
 # English Reading Companion
 
-**Current version:** 1.0.1
-**Release:** 2026-08-06 · REG-20260806-002
+**Current version:** 2.0.0
+**Release:** 2026-08-06 · REG-20260806-003
 
 Apply the user's stable reading method. Build English intuition rather than produce a translation or grammar lecture.
 
 ## Version visibility
 
 - Read `VERSION` before producing any analysis and require it to match the version declared above.
-- Begin every user-visible analysis with this exact line immediately after any YAML frontmatter and title:
+- Begin every user-visible analysis with this exact line immediately after the title:
 
-  `> Skill: english-reading-companion v1.0.1`
+  `> Skill: english-reading-companion v2.0.0`
 
 - For every full-article companion, save the completed analysis as `content/readings/NNN-english-slug.md`; do not leave the result only in chat. Do this before sending the final handoff.
 - Before generating, confirm the source text is available under `content/sources/`, and identify its three-digit article ID, lowercase English slug, and source title. If any is missing or ambiguous, stop and ask the user instead of inventing a filename or silently skipping the save.
 - Save new analyses with `status: "draft"`. Never overwrite an existing companion file without the user's explicit confirmation.
-- Set `skill: "english-reading-companion"` and `skill_version: "1.0.1"` in the saved file's YAML frontmatter.
+- Store `skill: "english-reading-companion"` and `skill_version: "2.0.0"` in the saved file's hidden metadata comment.
 - Include the same skill name and version in the concise chat handoff that links or summarizes a saved artifact.
 - Stop and report a version mismatch instead of guessing which version is active.
 
@@ -142,7 +142,7 @@ Synthesize earlier findings without repeating their language analysis. Add only 
 ### 10. Save and hand off the artifact
 
 - Write the completed full-article companion to `content/readings/NNN-english-slug.md` using the source file's ID and slug.
-- Include YAML frontmatter with `article_id`, `source_title`, `companion_title`, `skill`, `skill_version`, `generated_at`, `regression_report`, and `status`.
+- Begin the file with an HTML comment containing `article_id`, `source_title`, `companion_title`, `skill`, `skill_version`, `generated_at`, `regression_report`, and `status`. This preserves local validation metadata without presenting engineering fields to the reader.
 - Verify the file exists and report its local path in the final handoff.
 
 ## Default output
