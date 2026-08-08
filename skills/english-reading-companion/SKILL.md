@@ -5,8 +5,8 @@ description: "Analyze English stories and short essays with the user's English R
 
 # English Reading Companion
 
-**Current version:** 2.2.0
-**Release:** 2026-08-06 · REG-20260806-005
+**Current version:** 2.3.0
+**Release:** 2026-08-07 · REG-20260807-001
 
 Apply the user's stable reading method. Build English intuition rather than produce a translation or grammar lecture.
 
@@ -15,12 +15,12 @@ Apply the user's stable reading method. Build English intuition rather than prod
 - Read `VERSION` before producing any analysis and require it to match the version declared above.
 - Begin every user-visible analysis with this exact line immediately after the title:
 
-  `> Skill: english-reading-companion v2.2.0`
+  `> Skill: english-reading-companion v2.3.0`
 
 - For every full-article companion, save the completed analysis as `content/readings/NNN-english-slug.md`; do not leave the result only in chat. Do this before sending the final handoff.
 - Before generating, confirm the source text is available under `content/sources/`, and identify its three-digit article ID, lowercase English slug, and source title. If any is missing or ambiguous, stop and ask the user instead of inventing a filename or silently skipping the save.
 - Save new analyses with `status: "draft"`. Never overwrite an existing companion file without the user's explicit confirmation.
-- Store `skill: "english-reading-companion"` and `skill_version: "2.2.0"` in the saved file's hidden metadata comment.
+- Store `skill: "english-reading-companion"` and `skill_version: "2.3.0"` in the saved file's hidden metadata comment.
 - Include the same skill name and version in the concise chat handoff that links or summarizes a saved artifact.
 - Stop and report a version mismatch instead of guessing which version is active.
 
@@ -41,6 +41,7 @@ Treat the four layers as a reasoning sequence, not four independent labels.
 - Explain meaning in context before discussing grammar.
 - Prefer meaning chunks, idioms, collocations, and natural expressions over isolated vocabulary.
 - Select only 3–5 high-value expressions. Favor depth over coverage.
+- When a cultural, historical, or role-identity term is necessary to understand the article's situation or stakes, include one such gateway term among the 3–5. Give only the minimal stable context needed to unlock the text; do not force one into articles that do not need it, and do not turn it into unsupported background history.
 - Reduce line-by-line Chinese translation. Translate only where it unlocks meaning or contrast.
 - Proactively detect expressions whose literal words are understandable but whose intended meaning is easy to miss.
 - Assign each core insight one primary section for full explanation. In other sections, reference it briefly or add only information specific to that section.
@@ -103,10 +104,11 @@ If the sentence also requires Beyond the Words analysis, identify that need brie
 
 Choose 3–5 expressions using this priority:
 
-1. idioms and non-literal phrasing;
-2. reusable meaning chunks;
-3. natural collocations;
-4. high-frequency vocabulary only when context changes its force.
+1. a cultural, historical, or role-identity gateway term when it materially unlocks the article;
+2. idioms and non-literal phrasing;
+3. reusable meaning chunks;
+4. natural collocations;
+5. high-frequency vocabulary only when context changes its force.
 
 For each item, use this compact scan-friendly sequence: **Meaning in context（语境含义）**, **Why it matters（值得注意）**, and **Try it（可迁移用法）**. State usage or tone in the first two parts, and omit the final part only when an example would not help. Keep the whole entry to 2–4 short sentences. Avoid dictionary-style synonym lists.
 
@@ -190,6 +192,7 @@ Before responding, verify:
 
 - Can the reader retell the story and identify its turn?
 - Are the selected expressions genuinely high-value and limited to 3–5?
+- When the article depends on a cultural, historical, or role-identity gateway term, did the selection include one with only the minimal context needed?
 - Did Beyond the Words reveal at least one meaning unavailable from literal translation alone?
 - Is the interpretation supported by the text?
 - Did the analysis explain how language creates the story's effect?

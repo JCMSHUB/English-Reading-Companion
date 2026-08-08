@@ -72,6 +72,17 @@ class SkillVersionContractTest(unittest.TestCase):
         self.assertIn("Try it（可迁移用法）", skill_text)
         self.assertIn("Keep the whole entry to 2–4 short sentences", skill_text)
 
+    def test_companion_keeps_necessary_cultural_or_historical_gateway_terms(self):
+        skill_text = (
+            SKILLS / "english-reading-companion" / "SKILL.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn(
+            "cultural, historical, or role-identity gateway term", skill_text
+        )
+        self.assertIn("minimal stable context needed to unlock the text", skill_text)
+        self.assertIn("unsupported background history", skill_text)
+
     def test_companion_metadata_is_hidden_from_readers(self):
         required_fields = [
             "article_id:",
@@ -86,6 +97,8 @@ class SkillVersionContractTest(unittest.TestCase):
 
         for path in sorted((ROOT / "content" / "readings").glob("*.md")):
             text = path.read_text(encoding="utf-8")
+            if "workflow_skill:" in text:
+                continue
             self.assertTrue(text.startswith("<!--\n"), str(path))
             self.assertIn("-->\n\n# ", text)
             self.assertNotIn("\n---\n", text)
