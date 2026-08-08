@@ -1,7 +1,7 @@
 interface:
-  display_name: English Reading Companion v2.3.0
-  short_description: Read stories through language, thought, and subtext
-  default_prompt: Use English Reading Companion and state its current version before analyzing this article.
+  display_name: "English Reading Companion v2.4.0"
+  short_description: "Build close and extensive reading through stories"
+  default_prompt: "Use $english-reading-companion to guide me through this article and build close and extensive reading skills."
 policy:
   products:
   - chatgpt

@@ -72,6 +72,16 @@ class SkillVersionContractTest(unittest.TestCase):
         self.assertIn("Try it（可迁移用法）", skill_text)
         self.assertIn("Keep the whole entry to 2–4 short sentences", skill_text)
 
+    def test_companion_targets_elementary_learners_and_both_reading_modes(self):
+        skill_text = (
+            SKILLS / "english-reading-companion" / "SKILL.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("elementary foundation in English", skill_text)
+        self.assertIn("Close reading / 精读", skill_text)
+        self.assertIn("Extensive reading / 泛读", skill_text)
+        self.assertIn("without translating every sentence", skill_text)
+
     def test_companion_keeps_necessary_cultural_or_historical_gateway_terms(self):
         skill_text = (
             SKILLS / "english-reading-companion" / "SKILL.md"

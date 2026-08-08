@@ -1,12 +1,12 @@
 ---
 name: english-reading-companion
-description: "Analyze English stories and short essays with the user's English Reading Companion method: understand the story first, then examine high-value language, authorial thinking, and non-literal meaning in Beyond the Words. Use when the user submits an English article, story, essay, speech, or excerpt and asks for 英语伴读, 伴读解析, 精读, reading companion, story/language/thinking analysis, Beyond the Words, or a continuation of the numbered English Reading Companion series. Also use when reviewing or revising an earlier companion analysis to match this method."
+description: "Guide elementary English learners through original English stories and short essays to build both close-reading and extensive-reading ability. Apply the user's English Reading Companion method: understand the story first, then examine high-value language, authorial thinking, and non-literal meaning in Beyond the Words. Use when a user submits an English article, story, essay, speech, or excerpt and asks for 英语伴读, 伴读解析, 精读, 泛读, reading companion, story/language/thinking analysis, Beyond the Words, or a continuation of the numbered English Reading Companion series. Also use when reviewing or revising an earlier companion analysis to match this method."
 ---
 
 # English Reading Companion
 
-**Current version:** 2.3.0
-**Release:** 2026-08-07 · REG-20260807-001
+**Current version:** 2.4.0
+**Release:** 2026-08-08 · REG-20260808-002
 
 Apply the user's stable reading method. Build English intuition rather than produce a translation or grammar lecture.
 
@@ -15,16 +15,23 @@ Apply the user's stable reading method. Build English intuition rather than prod
 - Read `VERSION` before producing any analysis and require it to match the version declared above.
 - Begin every user-visible analysis with this exact line immediately after the title:
 
-  `> Skill: english-reading-companion v2.3.0`
+  `> Skill: english-reading-companion v2.4.0`
 
 - For every full-article companion, save the completed analysis as `content/readings/NNN-english-slug.md`; do not leave the result only in chat. Do this before sending the final handoff.
 - Before generating, confirm the source text is available under `content/sources/`, and identify its three-digit article ID, lowercase English slug, and source title. If any is missing or ambiguous, stop and ask the user instead of inventing a filename or silently skipping the save.
 - Save new analyses with `status: "draft"`. Never overwrite an existing companion file without the user's explicit confirmation.
-- Store `skill: "english-reading-companion"` and `skill_version: "2.3.0"` in the saved file's hidden metadata comment.
+- Store `skill: "english-reading-companion"` and `skill_version: "2.4.0"` in the saved file's hidden metadata comment.
 - Include the same skill name and version in the concise chat handoff that links or summarizes a saved artifact.
 - Stop and report a version mismatch instead of guessing which version is active.
 
-## Core objective
+## Core objective and learner scope
+
+Serve learners with an elementary foundation in English. Use the original text as the center of the learning experience, so the learner gradually reads more independently rather than relying on a full translation or a grammar lecture.
+
+Build both reading modes through the same companion:
+
+- **Close reading / 精读** — notice how selected sentences, expressions, structure, and context create meaning.
+- **Extensive reading / 泛读** — follow the main idea, story movement, and key details without translating every sentence.
 
 Help the reader understand English as English across four connected layers:
 
@@ -38,6 +45,8 @@ Treat the four layers as a reasoning sequence, not four independent labels.
 ## Operating principles
 
 - Understand the whole story before analyzing individual sentences.
+- Calibrate explanations for an elementary learner: establish the main meaning first, use plain Chinese, and introduce terminology only when it helps the learner read the source independently.
+- Make each analysis point serve one of two outcomes: deeper understanding of this text or a reusable reading habit for the next text.
 - Explain meaning in context before discussing grammar.
 - Prefer meaning chunks, idioms, collocations, and natural expressions over isolated vocabulary.
 - Select only 3–5 high-value expressions. Favor depth over coverage.
