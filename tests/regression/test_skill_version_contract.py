@@ -93,6 +93,17 @@ class SkillVersionContractTest(unittest.TestCase):
         self.assertIn("minimal stable context needed to unlock the text", skill_text)
         self.assertIn("unsupported background history", skill_text)
 
+    def test_companion_controls_density_inference_and_transfer_examples(self):
+        skill_text = (
+            SKILLS / "english-reading-companion" / "SKILL.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("default to three", skill_text)
+        self.assertIn("merge them or omit the lower-value section", skill_text)
+        self.assertIn("textual fact, textual implication", skill_text)
+        self.assertIn("claim of replacement, destiny, or compensation", skill_text)
+        self.assertIn("natural, no harder than the source point", skill_text)
+
     def test_companion_metadata_is_hidden_from_readers(self):
         required_fields = [
             "article_id:",

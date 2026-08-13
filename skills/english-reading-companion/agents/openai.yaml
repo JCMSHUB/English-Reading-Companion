@@ -1,5 +1,5 @@
 interface:
-  display_name: "English Reading Companion v2.4.0"
+  display_name: "English Reading Companion v2.5.0"
   short_description: "Build close and extensive reading through stories"
   default_prompt: "Use $english-reading-companion to guide me through this article and build close and extensive reading skills."
 policy:
