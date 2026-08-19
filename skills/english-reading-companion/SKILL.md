@@ -5,8 +5,8 @@ description: "Guide elementary English learners through original English stories
 
 # English Reading Companion
 
-**Current version:** 2.5.0
-**Release:** 2026-08-13 · REG-20260813-001
+**Current version:** 2.6.0
+**Release:** 2026-08-19 · REG-20260819-001
 
 Apply the user's stable reading method. Build English intuition rather than produce a translation or grammar lecture.
 
@@ -15,12 +15,12 @@ Apply the user's stable reading method. Build English intuition rather than prod
 - Read `VERSION` before producing any analysis and require it to match the version declared above.
 - Begin every user-visible analysis with this exact line immediately after the title:
 
-  `> Skill: english-reading-companion v2.5.0`
+  `> Skill: english-reading-companion v2.6.0`
 
 - For every full-article companion, save the completed analysis as `content/readings/NNN-english-slug.md`; do not leave the result only in chat. Do this before sending the final handoff.
 - Before generating, confirm the source text is available under `content/sources/`, and identify its three-digit article ID, lowercase English slug, and source title. If any is missing or ambiguous, stop and ask the user instead of inventing a filename or silently skipping the save.
 - Save new analyses with `status: "draft"`. Never overwrite an existing companion file without the user's explicit confirmation.
-- Store `skill: "english-reading-companion"` and `skill_version: "2.5.0"` in the saved file's hidden metadata comment.
+- Store `skill: "english-reading-companion"` and `skill_version: "2.6.0"` in the saved file's hidden metadata comment.
 - Include the same skill name and version in the concise chat handoff that links or summarizes a saved artifact.
 - Stop and report a version mismatch instead of guessing which version is active.
 
@@ -57,10 +57,19 @@ Treat the four layers as a reasoning sequence, not four independent labels.
 - Do not restate the same interpretation merely to complete every heading.
 - Distinguish textual evidence from interpretation. Do not invent biography, motives, or cultural claims.
 - Preserve ambiguity when the text does not support a single interpretation.
-- In historical, medical, death, trauma, or fate-like material, label the boundary between textual fact, textual implication, and a reader's possible association. Do not turn an implication into a diagnosis, a universal lesson, a factual background claim, or a claim of replacement, destiny, or compensation unless the text supports it.
+- In historical, medical, death, trauma, or fate-like material, label the boundary between textual fact, the author's interpretation, and a reader's possible association when that boundary is needed to prevent overreach. Do not turn an interpretation or association into a diagnosis, a universal lesson, a factual background claim, or a claim of replacement, destiny, causation, compensation, or resolution unless the text supports it.
 - Keep the experience sustainable: clear, thoughtful, and normally readable in 5–15 minutes.
 - Use Chinese for explanation and retain the important English wording being studied.
 - Use short labels and short paragraphs to make scanning easy; do not use tables for the main analysis, because they read poorly on narrow screens.
+
+## Conditional calibration rules
+
+Apply these rules only when their trigger condition materially changes understanding. They refine the four-layer method; they do not add mandatory sections.
+
+1. **Concentrated short texts** — When a short text's key value is concentrated in a final reversal, irony, one non-literal phrase, or a repeated sentence pattern, use a core path: retain the story, decisive contextual explanation, needed language, theme, and active output; merge or omit any Story Flow or Writing Style section that would repeat the same evidence. Do not compress away the explanation that makes the reversal readable.
+2. **Sensitive autobiographical texts** — When trauma, death, illness, body experience, strong symbolism, or fate-like framing invites overreach, distinguish textual fact from the author's interpretation and from a possible reader association in one or two natural sentences. Do not add a warning formula to low-risk texts or use the boundary to avoid explaining the text's actual emotional meaning.
+3. **Role-identity gateways** — When a profession, family role, community, or institutional identity unlocks later actions, objects, relationships, or expectations, treat it as a high-priority gateway term. Give only the minimal stable context the text requires; do not turn every role word into background instruction.
+4. **Structural anchors** — When repeated time markers, milestones, direct address, short-sentence runs, dashes, ellipses, or modal changes carry the narrative or emotional turn, identify two to four anchors before detailed language analysis. Do not force an anchor map onto a straightforward linear text or replace story comprehension with sentence-by-sentence parsing.
 
 ## Workflow
 
@@ -122,7 +131,7 @@ Choose 3–5 expressions using this priority. For a single-paragraph, joke-like,
 
 For each item, use this compact scan-friendly sequence: **Meaning in context（语境含义）**, **Why it matters（值得注意）**, and **Try it（可迁移用法）**. State usage or tone in the first two parts. Add **Try it** only when its example is natural, no harder than the source point, and useful to an elementary learner; otherwise omit it and keep the item as a comprehension point. Keep the whole entry to 2–4 short sentences. Avoid dictionary-style synonym lists.
 
-When an expression also belongs in Beyond the Words, keep its entry here concise and reserve the full contextual interpretation for that section.
+When an expression also belongs in Beyond the Words, keep its entry here concise and reserve the full contextual interpretation for that section. A role-identity gateway belongs among the 3–5 expressions only when it unlocks the article's situation or stakes.
 
 ### 7. Go Beyond the Words
 
@@ -142,7 +151,7 @@ Treat this as the primary section for full analysis of non-literal meaning. Avoi
 
 ### 8. Explain Language Patterns and Writing Style
 
-Identify only patterns worth reusing or noticing. Discuss sentence architecture when it creates rhythm, suspense, contrast, compression, viewpoint, or emotional force. Use **Sentence Workshop** for one or two sentences only when detailed parsing is genuinely useful. When Story Flow and Writing Style would rely on the same evidence without adding a distinct learning layer, merge them or omit the lower-value section.
+Identify only patterns worth reusing or noticing. Discuss sentence architecture when it creates rhythm, suspense, contrast, compression, viewpoint, or emotional force. For structurally fragmented text, identify the selected anchors and their combined movement before parsing any one sentence. Use **Sentence Workshop** for one or two sentences only when detailed parsing is genuinely useful. When Story Flow and Writing Style would rely on the same evidence without adding a distinct learning layer, merge them or omit the lower-value section.
 
 Avoid turning the article into a comprehensive grammar lesson.
 

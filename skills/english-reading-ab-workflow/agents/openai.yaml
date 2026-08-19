@@ -1,8 +1,8 @@
 interface:
-  display_name: English Reading A/B Workflow v1.0.0
-  short_description: Compare baseline and skilled English reading analyses
-  default_prompt: Run the three-output English Reading A/B workflow and state both
-    active skill versions before processing this source text.
+  display_name: English Reading A/B Workflow v1.1.0
+  short_description: Compare single articles or synthesize A/B evidence across samples
+  default_prompt: Run a single-article English Reading A/B comparison, or synthesize
+    evidence from an explicitly specified set of completed comparison reports.
 policy:
   products:
   - chatgpt

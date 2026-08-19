@@ -75,10 +75,29 @@ Use these rules when an item belongs to several layers:
 
 ## Depth calibration
 
-- **Simple article:** concise story summary, 3 expressions, one strong Beyond the Words observation, theme, takeaway, reflection.
+- **Simple article:** concise story summary, 3 expressions, one strong Beyond the Words observation, theme, takeaway, reflection. For a concentrated short reversal, use the core path rather than separate overlapping sections.
+- **Fragmented or rhythm-led article:** identify 2–4 structural anchors that organize the reading, then explain only the language points that those anchors make worth noticing.
 - **Language-dense article:** add paragraph breakdown and up to 5 expressions.
 - **Structurally difficult sentence:** add a Sentence Workshop with meaning chunks, grammatical spine, modifiers, contextual paraphrase, and why the construction works.
-- **Emotionally subtle article:** spend more space on narrative restraint, retrospective meaning, and tone than on grammar.
+- **Emotionally subtle or sensitive article:** spend more space on narrative restraint, retrospective meaning, and tone than on grammar; name fact, author interpretation, and reader association only where their boundary is needed.
+
+## Conditional calibration patterns
+
+### Concentrated short reversal
+
+When an ending, irony, or repeated pattern carries nearly all of a short text's learning value, preserve the story and decisive contextual explanation first. Merge adjacent sections that would only restate the same turn. Brevity is not a reason to omit the explanation that makes the turn intelligible.
+
+### Sensitive autobiographical boundary
+
+Keep three levels separate when the text invites overreach: **Textual fact** (what happened or was said), **Author interpretation** (the meaning the writer gives the event), and **Reader association** (a possible response that the source does not establish as fact). Use this distinction briefly and only where needed; it prevents unsupported diagnosis, destiny, causation, compensation, or “the pain was solved” claims without flattening emotion.
+
+### Role-identity gateway
+
+A role word is a gateway when it changes how readers understand later actions, objects, relationships, or expectations. Give the minimum stable context and return to the source. Do not promote an ordinary role word merely to fill an expression slot.
+
+### Structural anchors
+
+For rhythm-led or fragmented writing, select two to four formal anchors—such as time markers, milestones, repeated wording, direct address, dashes, ellipses, short-sentence runs, or modal shifts—and explain their combined movement. Do not map a simple linear narrative or turn anchors into a grammar inventory.
 
 ## Sentence Workshop pattern
 

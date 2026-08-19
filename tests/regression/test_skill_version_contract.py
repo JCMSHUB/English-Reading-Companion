@@ -100,9 +100,28 @@ class SkillVersionContractTest(unittest.TestCase):
 
         self.assertIn("default to three", skill_text)
         self.assertIn("merge them or omit the lower-value section", skill_text)
-        self.assertIn("textual fact, textual implication", skill_text)
-        self.assertIn("claim of replacement, destiny, or compensation", skill_text)
+        self.assertIn("textual fact, the author's interpretation", skill_text)
+        self.assertIn("replacement, destiny, causation, compensation, or resolution", skill_text)
         self.assertIn("natural, no harder than the source point", skill_text)
+
+    def test_companion_has_conditional_calibration_rules(self):
+        skill_text = (SKILLS / "english-reading-companion" / "SKILL.md").read_text(
+            encoding="utf-8"
+        )
+        method_text = (
+            SKILLS / "english-reading-companion" / "references" / "method.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("## Conditional calibration rules", skill_text)
+        self.assertIn("Concentrated short texts", skill_text)
+        self.assertIn("Sensitive autobiographical texts", skill_text)
+        self.assertIn("Role-identity gateways", skill_text)
+        self.assertIn("Structural anchors", skill_text)
+        self.assertIn("author's interpretation", skill_text)
+        self.assertIn("two to four anchors", skill_text)
+        self.assertIn("## Conditional calibration patterns", method_text)
+        self.assertIn("Textual fact", method_text)
+        self.assertIn("Reader association", method_text)
 
     def test_companion_metadata_is_hidden_from_readers(self):
         required_fields = [
@@ -138,6 +157,23 @@ class SkillVersionContractTest(unittest.TestCase):
         )
         self.assertIn(expected, skill_text)
         self.assertIn("read only its `VERSION` file before starting the baseline", skill_text)
+
+    def test_ab_workflow_has_cross_sample_synthesis_contract(self):
+        workflow_dir = SKILLS / "english-reading-ab-workflow"
+        skill_text = (workflow_dir / "SKILL.md").read_text(encoding="utf-8")
+        synthesis_text = (
+            workflow_dir / "references" / "cross-sample-synthesis.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("## Cross-sample synthesis", skill_text)
+        self.assertIn("explicitly provides comparison paths, article IDs", skill_text)
+        self.assertIn("Do not default to scanning all `content/readings/`", skill_text)
+        self.assertIn("Reject duplicate article IDs", skill_text)
+        self.assertIn("fewer than three included articles", skill_text)
+        self.assertIn("no skill, version, or existing article was modified", skill_text)
+        self.assertIn("## Status rules", synthesis_text)
+        self.assertIn("Distinct IDs are necessary but insufficient", synthesis_text)
+        self.assertIn("cannot edit a companion skill", synthesis_text)
 
     def test_referenced_files_exist(self):
         expected = [
