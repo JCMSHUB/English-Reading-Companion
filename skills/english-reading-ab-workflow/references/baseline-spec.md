@@ -31,17 +31,19 @@ The baseline must not deliberately apply or reproduce these companion-specific m
 - mandatory proactive non-literal diagnostics;
 - the companion's fixed 3–5 expression prioritization rule;
 - mandatory narrative-turn tracing;
-- mandatory One-sentence Takeaway plus 30-second Reflection;
+- a required `Simple English` line attached to selected expressions as a fixed bundle;
+- a required `English Replay` close with a three-sentence model, target expressions, sentence starters, and a content route;
+- any other mandatory companion-specific closing module, including the historical One-sentence Takeaway plus 30-second Reflection;
 - the companion quality gate;
 - companion reference examples or terminology.
 
-Natural overlap is allowed when the text makes a point obvious. For example, a general analysis may correctly explain an idiom or notice irony. Do not suppress valid insights merely to exaggerate the skilled result.
+Natural overlap is allowed when the text makes a point obvious. For example, a general analysis may correctly explain an idiom, use a naturally simple English paraphrase, notice irony, or ask a small reflection or retelling question. Treat that independent overlap as baseline evidence; do not suppress valid insights merely to exaggerate the skilled result. Leakage means reproducing the companion's recognizable bundled mechanism or consulting its instructions, not independently making one similar move.
 
 ## Baseline quality checks
 
 - Is the story summary correct?
 - Are explanations useful rather than padded?
 - Are claims grounded in the source?
+- Are any simple paraphrases or output prompts independently motivated rather than copied as a companion-specific bundle?
 - Would this be a plausible competent response before the specialized skill existed?
 - Was it finalized before the skilled branch began?
-

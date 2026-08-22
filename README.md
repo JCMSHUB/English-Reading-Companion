@@ -46,10 +46,14 @@ English-Reading-Companion/
 ├── AGENTS.md
 ├── CHANGELOG.md
 ├── .gitignore
+├── docs/
+│   └── inbox-batch-workflow.md # 合集输入与动态规划流程
 │
 ├── content/
+│   ├── inbox/                    # 待处理的 Markdown 原文合集
 │   ├── sources/                  # 英文原文，仅本地保存
-│   └── readings/                 # 正式伴读内容，仅本地保存
+│   ├── readings/                 # 正式伴读内容，仅本地保存
+│   └── processed/                # 已完成处理的 Markdown 原文合集
 │
 ├── skills/
 │   ├── english-reading-companion/
@@ -70,25 +74,25 @@ English-Reading-Companion/
 ### 4.1 原文
 
 ```text
-content/sources/NNN-english-slug.md
+content/sources/HONY-NNN-english-slug.md
 ```
 
 示例：
 
 ```text
-content/sources/001-let-him-go-olivia.md
+content/sources/HONY-001-adoption.md
 ```
 
 ### 4.2 伴读内容
 
 ```text
-content/readings/NNN-english-slug.md
+content/readings/HONY-NNN-english-slug.md
 ```
 
 示例：
 
 ```text
-content/readings/001-let-him-go-olivia.md
+content/readings/HONY-001-adoption.md
 ```
 
 ### 4.3 回归报告
@@ -103,7 +107,7 @@ reports/regression/REG-YYYYMMDD-NNN.md
 reports/regression/REG-20260729-001.md
 ```
 
-文件编号一经使用不得重新分配。英文 slug 使用小写字母和连字符。
+新增 HONY 文章使用 `HONY-NNN` 前缀，从 `HONY-001` 起连续编号；在新规则出现前，后续新增文章均使用这一格式。既有纯数字编号文件保留原名且不重新分配。英文 slug 使用小写字母和连字符。
 
 ## 5. 伴读内容元数据
 
@@ -111,8 +115,8 @@ reports/regression/REG-20260729-001.md
 
 ```html
 <!--
-article_id: "001"
-source_title: "Let Him Go, Olivia"
+article_id: "HONY-001"
+source_title: "Adoption"
 companion_title: "在放手之前：一位母亲拒绝接受终点"
 skill: "english-reading-companion"
 skill_version: "x.y.z"
@@ -134,7 +138,13 @@ status: "draft | reviewed | final"
 
 ## 6. 标准工作流
 
-### 6.1 使用 Work 生成伴读
+### 6.1 合集输入与动态规划
+
+原文可作为一份包含多篇独立文章的 Markdown 合集进入 `content/inbox/`。合集中的篇数是统计口径，不限定实际执行批量；ChatGPT 根据文章边界、文本完整度和目标文件冲突动态规划处理顺序。只有合集中的全部文章均通过逐篇校验，原始合集才可归档到 `content/processed/`。
+
+完整约定见 [合集输入与动态规划流程](docs/inbox-batch-workflow.md)。
+
+### 6.2 使用 Work 生成伴读
 
 1. 将英文原文保存到 `content/sources/`。
 2. 确认文章编号、标题、作者和原文完整性。
@@ -143,7 +153,7 @@ status: "draft | reviewed | final"
 5. 检查标题、四层结构、技能版本和元数据。
 6. 人工确认后，将状态从 `draft` 更新为 `reviewed` 或 `final`。
 
-### 6.2 使用 Codex 优化技能
+### 6.3 使用 Codex 优化技能
 
 1. 修改 `skills/`、`templates/` 或 `scripts/`。
 2. 运行现有回归测试。
@@ -152,7 +162,7 @@ status: "draft | reviewed | final"
 5. 更新 `CHANGELOG.md`。
 6. 提交 Git 并推送到 GitHub。
 
-### 6.3 双轨 A/B 评估
+### 6.4 双轨 A/B 评估
 
 `english-reading-ab-workflow` 每次生成三个独立 Markdown 输出：
 

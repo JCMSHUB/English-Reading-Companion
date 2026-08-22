@@ -39,7 +39,7 @@ class SkillVersionContractTest(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
         self.assertIn(
-            "save the completed analysis as `content/readings/NNN-english-slug.md`",
+            "save the completed analysis as `content/readings/HONY-NNN-english-slug.md`",
             skill_text,
         )
         self.assertIn("do not leave the result only in chat", skill_text)
@@ -70,7 +70,31 @@ class SkillVersionContractTest(unittest.TestCase):
         self.assertIn("Meaning in context（语境含义）", skill_text)
         self.assertIn("Why it matters（值得注意）", skill_text)
         self.assertIn("Try it（可迁移用法）", skill_text)
-        self.assertIn("Keep the whole entry to 2–4 short sentences", skill_text)
+        self.assertIn("one Simple English line plus 2–4 short Chinese or usage sentences", skill_text)
+
+    def test_companion_uses_bounded_simple_english_and_english_replay(self):
+        skill_text = (
+            SKILLS / "english-reading-companion" / "SKILL.md"
+        ).read_text(encoding="utf-8")
+        method_text = (
+            SKILLS / "english-reading-companion" / "references" / "method.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("clearly simpler, accurate English sentence", skill_text)
+        self.assertIn("omit it when simplification would distort", skill_text)
+        self.assertIn("Chinese remains primary for precise context and tone", skill_text)
+        self.assertIn("## English Replay / 用英语再走一遍", skill_text)
+        self.assertIn("### Read once（先读一遍）", skill_text)
+        self.assertIn("### Your Turn（轮到你说）", skill_text)
+        self.assertIn("retell the article in **2–3 sentences**", skill_text)
+        self.assertIn("2–3 target expressions", skill_text)
+        self.assertIn("2–3 short sentence starters", skill_text)
+        self.assertIn("article-specific content route", skill_text)
+        self.assertIn("It replaces separate Takeaway and Reflection sections", skill_text)
+        self.assertIn("do not create a parallel English analysis", skill_text)
+        self.assertIn("what remains unresolved", skill_text)
+        self.assertIn("## Simple English and English Replay", method_text)
+        self.assertIn("The Read once paragraph is a comprehension bridge", method_text)
 
     def test_companion_targets_elementary_learners_and_both_reading_modes(self):
         skill_text = (
@@ -174,6 +198,29 @@ class SkillVersionContractTest(unittest.TestCase):
         self.assertIn("## Status rules", synthesis_text)
         self.assertIn("Distinct IDs are necessary but insufficient", synthesis_text)
         self.assertIn("cannot edit a companion skill", synthesis_text)
+
+    def test_ab_workflow_isolates_and_evaluates_companion_output_mechanisms(self):
+        workflow_dir = SKILLS / "english-reading-ab-workflow"
+        skill_text = (workflow_dir / "SKILL.md").read_text(encoding="utf-8")
+        baseline_text = (
+            workflow_dir / "references" / "baseline-spec.md"
+        ).read_text(encoding="utf-8")
+        rubric_text = (
+            workflow_dir / "references" / "comparison-rubric.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("English-to-English meaning bridge", skill_text)
+        self.assertIn("observed scaffold usability", skill_text)
+        self.assertIn("bundled-mechanism leakage", skill_text)
+        self.assertIn("a required `Simple English` line", baseline_text)
+        self.assertIn("a required `English Replay` close", baseline_text)
+        self.assertIn("independent overlap as baseline evidence", baseline_text)
+        self.assertIn("English-to-English meaning bridge", rubric_text)
+        self.assertIn("Active output / recall support", rubric_text)
+        self.assertIn("### Companion-mechanism checks", rubric_text)
+        self.assertIn("not a retrospective failure", rubric_text)
+        self.assertIn("not an automatic isolation failure", rubric_text)
+        self.assertIn("do not claim improved retelling accuracy", rubric_text)
 
     def test_referenced_files_exist(self):
         expected = [

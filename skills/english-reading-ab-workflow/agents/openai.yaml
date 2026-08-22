@@ -1,5 +1,5 @@
 interface:
-  display_name: English Reading A/B Workflow v1.1.0
+  display_name: English Reading A/B Workflow v1.2.0
   short_description: Compare single articles or synthesize A/B evidence across samples
   default_prompt: Run a single-article English Reading A/B comparison, or synthesize
     evidence from an explicitly specified set of completed comparison reports.

@@ -28,10 +28,34 @@ Use a table with these dimensions:
 | Beyond literal meaning | | | |
 | Writing craft | | | |
 | Transferable learning assets | | | |
-| Active reflection | | | |
+| English-to-English meaning bridge | | | |
+| Active output / recall support | | | |
 | Clarity and reader workload | | | |
 
 Quote only short phrases needed as evidence. Prefer precise paraphrase.
+
+### Companion-mechanism checks
+
+Apply these checks only to mechanisms required by the installed companion version. Their absence from a historical skilled artifact is not a retrospective failure.
+
+When the skilled output uses `Simple English`, check whether each line:
+
+- is clearly easier than the source expression in vocabulary and structure;
+- preserves the core contextual meaning and any important limit, such as uncertainty or temporary duration;
+- adds an English-to-English connection without replacing the more precise Chinese explanation;
+- stays local to selected expressions instead of growing into a parallel English analysis.
+
+When the skilled output uses `English Replay`, check whether it:
+
+- gives a short, text-grounded route through the story, its turn, and its core meaning;
+- sets a small learner task and offers article-specific target expressions, sentence starters, and a content route;
+- supports recall without prescribing a complete answer to copy;
+- preserves unresolved difficulty or uncertainty in sensitive material;
+- replaces lower-value closing tasks rather than merely increasing total workload.
+
+A naturally simple paraphrase or small output prompt in the baseline is legitimate evidence, not an automatic isolation failure. Compare the quality and the bundled learning mechanism actually present in both artifacts.
+
+Report scaffold evidence at the level observed. A clear prompt may support the claim that the task is easier to start; without learner output or follow-up measurement, do not claim improved retelling accuracy, expression transfer, retention, or delayed recall.
 
 ## 4. Skilled gains
 
@@ -62,6 +86,8 @@ Identify:
 - repeated points across skilled sections;
 - low-value vocabulary or excessive grammar;
 - sections whose length exceeds their learning value.
+- English explanations that are not simpler than the source or erase an important boundary;
+- output prompts that are generic, over-scaffolded, or unsupported by actual learner-performance evidence.
 
 ## 7. Improvement candidates
 
@@ -95,4 +121,5 @@ Never modify the skill from this report alone.
 - Transfer value outranks vocabulary quantity.
 - A concise baseline can outperform a verbose skilled section.
 - A skilled gain must trace to the method, not merely general model variation.
+- A scaffold may improve task usability without proving a learning outcome; name the evidence level precisely.
 - Recommendations must generalize beyond the current article before becoming skill rules.

@@ -5,8 +5,8 @@ description: "Guide elementary English learners through original English stories
 
 # English Reading Companion
 
-**Current version:** 2.6.0
-**Release:** 2026-08-19 · REG-20260819-001
+**Current version:** 2.7.0
+**Release:** 2026-08-22 · REG-20260822-001
 
 Apply the user's stable reading method. Build English intuition rather than produce a translation or grammar lecture.
 
@@ -15,12 +15,12 @@ Apply the user's stable reading method. Build English intuition rather than prod
 - Read `VERSION` before producing any analysis and require it to match the version declared above.
 - Begin every user-visible analysis with this exact line immediately after the title:
 
-  `> Skill: english-reading-companion v2.6.0`
+  `> Skill: english-reading-companion v2.7.0`
 
-- For every full-article companion, save the completed analysis as `content/readings/NNN-english-slug.md`; do not leave the result only in chat. Do this before sending the final handoff.
-- Before generating, confirm the source text is available under `content/sources/`, and identify its three-digit article ID, lowercase English slug, and source title. If any is missing or ambiguous, stop and ask the user instead of inventing a filename or silently skipping the save.
+- For every new full-article companion, save the completed analysis as `content/readings/HONY-NNN-english-slug.md`; do not leave the result only in chat. Do this before sending the final handoff. Existing pure-numeric files retain their historical names.
+- Before generating, confirm the source text is available under `content/sources/`, and identify its `HONY-NNN` article ID, lowercase English slug, and source title. New HONY IDs begin at `HONY-001` and continue consecutively until a new naming rule appears. If any is missing or ambiguous, stop and ask the user instead of inventing a filename or silently skipping the save.
 - Save new analyses with `status: "draft"`. Never overwrite an existing companion file without the user's explicit confirmation.
-- Store `skill: "english-reading-companion"` and `skill_version: "2.6.0"` in the saved file's hidden metadata comment.
+- Store `skill: "english-reading-companion"` and `skill_version: "2.7.0"` in the saved file's hidden metadata comment.
 - Include the same skill name and version in the concise chat handoff that links or summarizes a saved artifact.
 - Stop and report a version mismatch instead of guessing which version is active.
 
@@ -52,6 +52,7 @@ Treat the four layers as a reasoning sequence, not four independent labels.
 - Select only 3–5 high-value expressions. Favor depth over coverage.
 - When a cultural, historical, or role-identity term is necessary to understand the article's situation or stakes, include one such gateway term among the 3–5. Give only the minimal stable context needed to unlock the text; do not force one into articles that do not need it, and do not turn it into unsupported background history.
 - Reduce line-by-line Chinese translation. Translate only where it unlocks meaning or contrast.
+- Use Chinese to secure accurate contextual understanding. Add short Simple English only as a bridge from the source expression to English meaning, not as a parallel translation of the full analysis.
 - Proactively detect expressions whose literal words are understandable but whose intended meaning is easy to miss.
 - Assign each core insight one primary section for full explanation. In other sections, reference it briefly or add only information specific to that section.
 - Do not restate the same interpretation merely to complete every heading.
@@ -129,7 +130,7 @@ Choose 3–5 expressions using this priority. For a single-paragraph, joke-like,
 4. natural collocations;
 5. high-frequency vocabulary only when context changes its force.
 
-For each item, use this compact scan-friendly sequence: **Meaning in context（语境含义）**, **Why it matters（值得注意）**, and **Try it（可迁移用法）**. State usage or tone in the first two parts. Add **Try it** only when its example is natural, no harder than the source point, and useful to an elementary learner; otherwise omit it and keep the item as a comprehension point. Keep the whole entry to 2–4 short sentences. Avoid dictionary-style synonym lists.
+For each item, use this compact scan-friendly sequence: **Simple English**, **Meaning in context（语境含义）**, **Why it matters（值得注意）**, and **Try it（可迁移用法）**. Add **Simple English** only when one clearly simpler, accurate English sentence can preserve the expression's core meaning and any important limit; omit it when simplification would distort tone, uncertainty, duration, or implication. Chinese remains primary for precise context and tone. Add **Try it** only when its example is natural, no harder than the source point, and useful to an elementary learner; otherwise omit it and keep the item as a comprehension point. Keep the explanatory entry compact: one Simple English line plus 2–4 short Chinese or usage sentences. Avoid dictionary-style synonym lists.
 
 When an expression also belongs in Beyond the Words, keep its entry here concise and reserve the full contextual interpretation for that section. A role-identity gateway belongs among the 3–5 expressions only when it unlocks the article's situation or stakes.
 
@@ -165,15 +166,19 @@ Connect the events to the author's viewpoint and theme. Ground the interpretatio
 
 Synthesize earlier findings without repeating their language analysis. Add only the higher-level viewpoint or theme that emerges from them.
 
-### 10. Close with active output
+### 10. Close with English Replay
 
-- Write a memorable English **One-sentence Takeaway** that captures the article without becoming a generic slogan.
-- Offer one focused **30-second Reflection** prompt answerable in one or two sentences.
-- Do not answer the reflection on the user's behalf unless asked.
+Use `## English Replay / 用英语再走一遍` as the default active-output close for a full companion. It replaces separate Takeaway and Reflection sections rather than stacking after them.
+
+- Under `### Read once（先读一遍）`, write three short Simple English sentences that retrace the story, its turn, and its core meaning. Keep them easier than the source and grounded in the text; do not create a parallel English analysis.
+- Under `### Your Turn（轮到你说）`, ask the learner to read the three sentences once, look away, and retell the article in **2–3 sentences**.
+- Offer 2–3 target expressions from the companion, 2–3 short sentence starters, and one article-specific content route that says which story movements to cover. These are optional supports, not a model answer the learner must copy.
+- Keep the task small. A specific takeaway may be folded into the final Read once sentence, and a reflection may be folded into the content route, but do not add separate default sections for them.
+- For sensitive material, preserve the distinction between what happened, how the author understood it, and what remains unresolved. Do not let the simplified retelling turn a temporary emotional shift into a diagnosis, cure, causal claim, or complete resolution.
 
 ### 11. Save and hand off the artifact
 
-- Write the completed full-article companion to `content/readings/NNN-english-slug.md` using the source file's ID and slug.
+- Write the completed new HONY companion to `content/readings/HONY-NNN-english-slug.md` using the source file's `HONY-NNN` ID and slug. Do not rename existing pure-numeric artifacts.
 - Begin the file with an HTML comment containing `article_id`, `source_title`, `companion_title`, `skill`, `skill_version`, `generated_at`, `regression_report`, and `status`. This preserves local validation metadata without presenting engineering fields to the reader.
 - Verify the file exists and report its local path in the final handoff.
 
@@ -191,9 +196,8 @@ Use the following order, adapting section depth to the article:
 8. **Language Patterns（值得积累的表达）**
 9. **Writing Style（作者写作技巧）**
 10. **Deep Understanding / Theme（作者真正想说什么）**
-11. **One-sentence Takeaway**
-12. **30-second Reflection**
-13. **Sentence Workshop** — optional; place near the sentence it supports if that reads better
+11. **English Replay / 用英语再走一遍** — three-sentence `Read once` plus a supported 2–3-sentence `Your Turn`
+12. **Sentence Workshop** — optional; place near the sentence it supports if that reads better
 
 Do not force empty or repetitive sections. Merge adjacent sections when they would repeat the same core insight or when the article does not contain enough independent material to justify separate treatment. Base this decision on information density and complexity, not word count alone. Always preserve Story, Language, Thinking, and Beyond the Words.
 
@@ -216,11 +220,13 @@ Before responding, verify:
 - Is the interpretation supported by the text?
 - For sensitive or fate-like material, did the analysis keep textual fact, implication, and reader association distinct?
 - Did the analysis explain how language creates the story's effect?
-- Is the takeaway specific to this article?
-- Is the reflection small enough to complete in 30 seconds?
+- Is each Simple English line clearly easier than the source expression, accurate in context, and omitted when it would erase an important limit or tone?
+- Does English Replay use three short, text-grounded sentences and ask for only a 2–3-sentence retelling?
+- Are its target expressions, sentence starters, and content route specific and light enough to support recall without becoming a second lesson or a model answer?
+- For sensitive material, does the Replay preserve what remains unresolved rather than converting a moment of change into complete resolution?
 - Did the response avoid unnecessary full translation and grammar overload?
 - Does every section add information not already fully explained elsewhere?
 - Has each core insight been assigned one primary section?
 - Can any repeated paragraph be replaced with a brief reference without losing meaning?
 - Does the Reading Route give a useful next step without repeating the summary?
-- Does every Key Expressions entry use the compact Meaning and Why it matters sequence, and use Try it only when the example is natural and level-appropriate?
+- Does every Key Expressions entry use the compact Simple English, Meaning, and Why it matters sequence when accurate simplification is possible, and use Try it only when the example is natural and level-appropriate?

@@ -64,6 +64,7 @@ Assign every core insight one primary section for full explanation. Other sectio
 | Beyond the Words | non-literal meaning, implication, tone, relationship, and contextual redefinition | story summary already established in First Reading |
 | Language Patterns / Writing Style | what formal choice creates rhythm, contrast, suspense, compression, or emotional effect | the higher-level thematic conclusion |
 | Deep Understanding | the viewpoint or theme emerging from earlier findings | renewed vocabulary, grammar, or sentence analysis |
+| English Replay | a short English retelling path and light recall supports | a parallel English analysis or a second full explanation of the theme |
 
 Use these rules when an item belongs to several layers:
 
@@ -73,9 +74,45 @@ Use these rules when an item belongs to several layers:
 4. Keep the reference to one sentence unless it adds a genuinely different layer.
 5. Before finishing, remove paragraphs whose deletion would lose no unique information.
 
+## Simple English and English Replay
+
+Use the two mechanisms as a small learning sequence: Chinese secures accurate understanding, Simple English builds an English-to-English meaning connection, and English Replay supports active recall.
+
+### Simple English bridge
+
+Add one Simple English sentence to a selected Key Expression only when it passes all of these checks:
+
+1. It is lexically and structurally easier than the source expression.
+2. It states the core contextual meaning in one sentence rather than listing synonyms.
+3. It preserves any limit that changes the interpretation, such as uncertainty, temporary duration, or incomplete resolution.
+4. It leaves precise tone, cultural context, and non-literal depth to the Chinese explanation.
+
+Omit the line when accurate simplification is not possible. Format consistency is less important than meaning accuracy. Useful patterns include:
+
+- `something was amiss` → `something did not seem right.`
+- `let my anxieties go` → `stop holding on to worries for a while.`
+- `henceforth` → `from that time on.`
+
+Do not add parallel English explanations to Story, Thinking, Beyond the Words, or every paragraph. More English is not the goal; a shorter route into English meaning is.
+
+### English Replay pattern
+
+Close a full companion with one compact replay loop:
+
+1. **Read once:** write three short Simple English sentences covering the story setup, the turn, and the core meaning.
+2. **Look away:** tell the learner to move their eyes away from the model after one reading.
+3. **Retell:** ask for only 2–3 sentences in the learner's own English.
+4. **Support:** offer 2–3 target expressions, 2–3 sentence starters, and one article-specific content route.
+
+The content route should name the movements that matter, such as “what was planned → what changed → why it became memorable.” It should not prescribe exact sentences. The Read once paragraph is a comprehension bridge, not an answer to memorize word for word.
+
+Fold the old takeaway function into the final Read once sentence when useful, and fold the old reflection function into the content route when useful. Do not stack separate Takeaway, Reflection, and Replay sections by default.
+
+For sensitive material, the three sentences must preserve the source's boundary. A brief moment of connection may help someone feel differently without solving every practical or emotional difficulty.
+
 ## Depth calibration
 
-- **Simple article:** concise story summary, 3 expressions, one strong Beyond the Words observation, theme, takeaway, reflection. For a concentrated short reversal, use the core path rather than separate overlapping sections.
+- **Simple article:** concise story summary, 3 expressions, one strong Beyond the Words observation, theme, and a compact English Replay. For a concentrated short reversal, use the core path rather than separate overlapping sections.
 - **Fragmented or rhythm-led article:** identify 2–4 structural anchors that organize the reading, then explain only the language points that those anchors make worth noticing.
 - **Language-dense article:** add paragraph breakdown and up to 5 expressions.
 - **Structurally difficult sentence:** add a Sentence Workshop with meaning chunks, grammatical spine, modifiers, contextual paraphrase, and why the construction works.
@@ -123,3 +160,7 @@ Use only when needed:
 - Fully re-explaining one core insight in Story Flow, Memorable Line, Beyond the Words, Writing Style, and Deep Understanding.
 - Overexplaining grammar that does not affect comprehension or style.
 - Missing how the final sentence reinterprets the title or earlier details.
+- Writing Simple English that is as difficult as the source or erases an important limit.
+- Adding a full parallel English analysis instead of a short meaning bridge.
+- Stacking Takeaway, Reflection, and English Replay into three separate closing tasks.
+- Giving so much Replay support that the learner only copies a model answer.

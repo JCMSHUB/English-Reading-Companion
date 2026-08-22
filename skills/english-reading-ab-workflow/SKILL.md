@@ -5,8 +5,8 @@ description: "Run a controlled English Reading A/B workflow: compare baseline an
 
 # English Reading A/B Workflow
 
-**Current version:** 1.1.0
-**Release:** 2026-08-19 · REG-20260819-002
+**Current version:** 1.2.0
+**Release:** 2026-08-22 · REG-20260822-002
 
 Produce either a reproducible comparison from one authoritative source text, or a reproducible synthesis from an explicitly specified set of completed comparison reports. Do not conflate the two modes.
 
@@ -16,7 +16,7 @@ Produce either a reproducible comparison from one authoritative source text, or 
 - Locate the installed `english-reading-companion` package and read only its `VERSION` file before starting the baseline. Do not read its `SKILL.md` or method references until the skilled branch begins.
 - Begin the user-visible workflow response with:
 
-  `> Skills: english-reading-ab-workflow v1.1.0; english-reading-companion v<installed-version>`
+  `> Skills: english-reading-ab-workflow v1.2.0; english-reading-companion v<installed-version>`
 
 - Record both versions in every comparison or synthesis artifact. Record `workflow_skill` and `workflow_skill_version` in all workflow artifacts; record `skill` and `skill_version` in the skilled artifact.
 - Stop and report the blocker when either version is missing, malformed, or inconsistent. Never infer a version from memory.
@@ -87,6 +87,8 @@ The comparison must:
 - identify what the skill discovered that the baseline missed;
 - identify anything the baseline did more clearly, efficiently, or naturally;
 - measure reader workload qualitatively;
+- evaluate any English-to-English meaning bridge and active-output support required by the installed companion, without treating extra English or extra prompts as automatic gains;
+- distinguish observed scaffold usability from unmeasured learner outcomes such as retelling accuracy, transfer, or delayed recall;
 - produce evidence-based skill improvement candidates;
 - separate one-article observations from recurring-pattern candidates.
 
@@ -100,7 +102,7 @@ Before delivery, confirm:
 - filenames share the same number and slug;
 - displayed and recorded skill versions match the corresponding `VERSION` files;
 - both analyses use the same source text;
-- the baseline contains no companion-only fixed framework leakage;
+- the baseline contains no companion-only fixed framework or bundled-mechanism leakage;
 - the skilled file is understandable without the comparison report;
 - the comparison cites concrete differences from both files;
 - no recommendation was silently applied to the companion skill.
