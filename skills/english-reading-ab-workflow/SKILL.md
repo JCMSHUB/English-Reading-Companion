@@ -1,29 +1,24 @@
 ---
 name: english-reading-ab-workflow
-description: "Run a controlled English Reading A/B workflow: compare baseline and skilled analyses for one source text, or synthesize evidence from an explicitly specified set of completed comparison reports. Use when the user asks for 双轨伴读, 英语伴读 A/B, baseline versus skill, cross-sample synthesis, or to evaluate and improve the English Reading Companion skill from evidence."
+description: "Run English Reading A/B comparisons when the user explicitly requests 双轨伴读, a baseline-versus-skill comparison, or synthesis of a specified set of completed comparison reports. Ordinary companion requests and audits or edits of skill instructions do not trigger the A/B artifact workflow."
 ---
 
 # English Reading A/B Workflow
 
-**Current version:** 1.2.0
-**Release:** 2026-08-22 · REG-20260822-002
+**Current version:** 1.2.1
+**Release:** 2026-09-14 · REG-20260914-002
 
 Produce either a reproducible comparison from one authoritative source text, or a reproducible synthesis from an explicitly specified set of completed comparison reports. Do not conflate the two modes.
 
-## Version visibility
-
-- Read this skill's `VERSION` and require it to match the version declared above.
-- Locate the installed `english-reading-companion` package and read only its `VERSION` file before starting the baseline. Do not read its `SKILL.md` or method references until the skilled branch begins.
-- Begin the user-visible workflow response with:
-
-  `> Skills: english-reading-ab-workflow v1.2.0; english-reading-companion v<installed-version>`
-
-- Record both versions in every comparison or synthesis artifact. Record `workflow_skill` and `workflow_skill_version` in all workflow artifacts; record `skill` and `skill_version` in the skilled artifact.
-- Stop and report the blocker when either version is missing, malformed, or inconsistent. Never infer a version from memory.
-
 ## Mode selection
 
-Use **Single-article comparison** when the user supplies one authoritative source text or asks for baseline/skilled/comparison outputs. Use **Cross-sample synthesis** only when the user explicitly asks to aggregate completed comparison reports and explicitly provides comparison paths, article IDs, or an approved directory range. Do not default to scanning all `content/readings/`.
+Use **Single-article comparison** when the user explicitly requests a comparison of baseline and skilled analyses for one source text, or asks for baseline/skilled/comparison outputs. Use **Cross-sample synthesis** only when the user explicitly asks to aggregate completed comparison reports and explicitly provides comparison paths, article IDs, or an approved directory range. Do not default to scanning all `content/readings/`.
+
+## Version visibility
+
+- Read this workflow's `VERSION` and require it to match the declaration above. Record `workflow_skill` and `workflow_skill_version` in all workflow artifacts. Report a missing or inconsistent workflow version rather than guessing.
+- For **Single-article comparison**, locate the installed `english-reading-companion` package and read only its `VERSION` file before starting the baseline. Do not read its `SKILL.md` or method references until the skilled branch begins. Display `> Skills: english-reading-ab-workflow v1.2.1; english-reading-companion v<installed-version>`, record both versions in the comparison, and record `skill` and `skill_version` in the skilled artifact. A missing or inconsistent companion version blocks new skilled generation.
+- For **Cross-sample synthesis**, use the companion versions recorded in each historical artifact set and collect them as `companion_skill_versions`. Display the current workflow version and the included historical companion versions, clearly labeled as sample versions. Do not read or require the currently installed companion package for this mode. Missing or conflicting sample version metadata affects that sample's eligibility, not the installation requirement; report exclusions and retain other eligible samples without upgrading insufficient evidence.
 
 ## Single-article comparison
 
@@ -115,9 +110,9 @@ Classify recommendations:
 
 - **Article-specific** — useful only for the current text; do not propose a skill change.
 - **Candidate** — plausible general improvement requiring more samples.
-- **Validated pattern** — repeated across at least three sufficiently different articles or explicitly confirmed by the user; suitable for a proposed skill update.
+- **Validated pattern** — supported by concrete comparison evidence across at least three sufficiently different articles; suitable for a proposed skill update. User approval of a candidate does not change its evidence status.
 
-Do not edit or update `english-reading-companion` unless the user separately authorizes that change after reviewing the evidence.
+Before editing `english-reading-companion`, check whether the current conversation already explicitly authorizes the proposed scope. If it does, complete the evaluation and proceed with the authorized follow-up without asking again. Otherwise deliver the evidence and request authorization only for a needed update. A comparison request alone does not authorize changes; an authorized candidate remains `Candidate` until its evidence meets the validation standard.
 
 ### Default interaction
 
@@ -147,7 +142,7 @@ Create one independent Markdown artifact under `reports/ab-synthesis/` named `AB
 - Normalize differently worded candidates only when their mechanism, expected benefit, and boundary genuinely match. Preserve the original candidate wording and source article IDs in the evidence matrix.
 - Mark a pattern `Validated pattern — eligible for proposed update` only when at least three distinct article IDs provide concrete comparison evidence and the report explains meaningful sample differences in topic, structure, or learning difficulty. Length, headings, or repeated versions alone are not diversity evidence.
 - Keep article-specific, insufficient, conflicting, or overgeneralized observations under `Article-specific`, `Candidate — needs more samples`, or `Non-findings` as appropriate.
-- A synthesis may recommend a separately reviewable skill-update proposal. It must state that no skill, version, or existing article was modified by the synthesis.
+- A synthesis may recommend a separately reviewable skill-update proposal. It must state that no skill, version, or existing article was modified by the synthesis itself. Any already-authorized follow-up update is a separate action governed by the iteration policy; report its actual changes separately and preserve the evaluated artifacts.
 
 ### Delivery
 

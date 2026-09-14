@@ -112,7 +112,7 @@ For sensitive material, the three sentences must preserve the source's boundary.
 
 ## Depth calibration
 
-- **Simple article:** concise story summary, 3 expressions, one strong Beyond the Words observation, theme, and a compact English Replay. For a concentrated short reversal, use the core path rather than separate overlapping sections.
+- **Simple article:** concise story summary, 3 expressions, contextual meaning beyond literal reading when supported, theme, and a compact English Replay. Check for subtext without requiring a minimum number of findings; do not invent hidden meaning in a straightforward text. For a concentrated short reversal, use the core path rather than separate overlapping sections.
 - **Fragmented or rhythm-led article:** identify 2–4 structural anchors that organize the reading, then explain only the language points that those anchors make worth noticing.
 - **Language-dense article:** add paragraph breakdown and up to 5 expressions.
 - **Structurally difficult sentence:** add a Sentence Workshop with meaning chunks, grammatical spine, modifiers, contextual paraphrase, and why the construction works.

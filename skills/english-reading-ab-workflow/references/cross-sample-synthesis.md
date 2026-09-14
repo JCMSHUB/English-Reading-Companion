@@ -12,7 +12,7 @@ Exclude and report files that are incomplete, duplicated by article ID, inconsis
 
 Save one report as `reports/ab-synthesis/ABS-YYYYMMDD-NNN.md`. Begin with hidden metadata that records:
 
-- `synthesis_id`, `workflow_skill`, `workflow_skill_version`, `companion_skill_versions`, `generated_at`, and `status`;
+- `synthesis_id`, `workflow_skill`, `workflow_skill_version`, `companion_skill_versions`, `generated_at`, and `status`; derive `companion_skill_versions` from the included historical artifacts, not the current installation. The installed companion package is not required for synthesis; exclude and report samples with missing or conflicting version metadata.
 - requested comparison paths; included and excluded article IDs; and the regression report identifier.
 
 Use this outline:
@@ -39,4 +39,4 @@ Distinct IDs are necessary but insufficient. Explain why the samples are not mer
 
 ## Safety and authority boundary
 
-A synthesis evaluates evidence. It can propose a separate skill-update document, but cannot edit a companion skill, change a version, regenerate a reading, or rewrite a comparison. Those actions require their own user authorization.
+A synthesis evaluates evidence and cannot edit a companion skill merely because a report recommends it. Check existing explicit user authorization before a follow-up update; proceed within that scope without requesting it again, or obtain authorization if it is absent. Keep the synthesis and any authorized update separately reported, preserve frozen evaluation artifacts, and do not treat user approval as cross-sample validation.

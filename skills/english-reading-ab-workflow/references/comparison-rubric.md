@@ -36,7 +36,7 @@ Quote only short phrases needed as evidence. Prefer precise paraphrase.
 
 ### Companion-mechanism checks
 
-Apply these checks only to mechanisms required by the installed companion version. Their absence from a historical skilled artifact is not a retrospective failure.
+Apply these checks only to mechanisms required by the companion version that produced the evaluated skilled artifact. Use the installed version for newly generated comparisons and the recorded sample version for historical artifacts. Their absence from a historical skilled artifact is not a retrospective failure.
 
 When the skilled output uses `Simple English`, check whether each line:
 

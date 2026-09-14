@@ -1,26 +1,33 @@
 ---
 name: english-reading-companion
-description: "Guide elementary English learners through original English stories and short essays to build both close-reading and extensive-reading ability. Apply the user's English Reading Companion method: understand the story first, then examine high-value language, authorial thinking, and non-literal meaning in Beyond the Words. Use when a user submits an English article, story, essay, speech, or excerpt and asks for 英语伴读, 伴读解析, 精读, 泛读, reading companion, story/language/thinking analysis, Beyond the Words, or a continuation of the numbered English Reading Companion series. Also use when reviewing or revising an earlier companion analysis to match this method."
+description: "Use the established English Reading Companion method for elementary learners when the user requests 英语伴读, asks for close or extensive reading with this method, continues its numbered series, or revises an existing companion. Ordinary translation, isolated language questions, and skill-file audits do not trigger this skill by themselves."
 ---
 
 # English Reading Companion
 
-**Current version:** 2.7.0
-**Release:** 2026-08-22 · REG-20260822-001
+**Current version:** 2.8.4
+**Release:** 2026-09-14 · Instruction-only update; validation recorded in the project CHANGELOG.md entry for 2.8.4.
 
 Apply the user's stable reading method. Build English intuition rather than produce a translation or grammar lecture.
+
+## Delivery scope
+
+- Use **project-series mode** only when generating a full numbered companion for the `English-Reading-Companion` project. Resolve this from the requested target project and its applicable `AGENTS.md`, not merely from a folder name or an English article. In this mode, use the project's source, naming, local-save, and private-archive contract below; the project's recorded authorization governs external delivery.
+- For general companion requests outside that project, use the user's supplied text, image, or requested source directly and deliver in chat or the requested format. Do not require `content/sources/`, a HONY ID, local saving, or private archiving. Focused answers and A/B evaluation artifacts are not project-series deliverables.
+
+- The full output structure, four-layer coverage, expression count, and full quality gate apply only to a full companion, including an A/B skilled branch. For a focused follow-up within this method, apply only the relevant explanation and checks; do not add a full template or Replay. An A/B baseline follows its independent baseline contract and does not apply this skill.
 
 ## Version visibility
 
 - Read `VERSION` before producing any analysis and require it to match the version declared above.
 - Begin every user-visible analysis with this exact line immediately after the title:
 
-  `> Skill: english-reading-companion v2.7.0`
+  `> Skill: english-reading-companion v2.8.4`
 
-- For every new full-article companion, save the completed analysis as `content/readings/HONY-NNN-english-slug.md`; do not leave the result only in chat. Do this before sending the final handoff. Existing pure-numeric files retain their historical names.
-- Before generating, confirm the source text is available under `content/sources/`, and identify its `HONY-NNN` article ID, lowercase English slug, and source title. New HONY IDs begin at `HONY-001` and continue consecutively until a new naming rule appears. If any is missing or ambiguous, stop and ask the user instead of inventing a filename or silently skipping the save.
-- Save new analyses with `status: "draft"`. Never overwrite an existing companion file without the user's explicit confirmation.
-- Store `skill: "english-reading-companion"` and `skill_version: "2.7.0"` in the saved file's hidden metadata comment.
+- In project-series mode, save the completed analysis as `content/readings/HONY-NNN-english-slug.md`; do not leave the result only in chat. Then follow the conditional external-delivery step 12 before the final handoff. Existing pure-numeric files retain their historical names.
+- For a project-series companion, resolve the source from the user's request and existing project files. Save newly supplied source text under `content/sources/` before generating the companion. Reuse an existing article ID and filename; for a new article, determine the next unused HONY ID from the established sequence and derive a lowercase English slug from the title or content. New HONY IDs begin at `HONY-001`; preserve existing names and follow any newer user naming rule. If no source title is supplied, label it untitled rather than inventing an original title. Ask only when source identity, numbering conflicts, or the overwrite target cannot be resolved reliably; missing filename components alone do not require confirmation.
+- Save new project-series analyses with `status: "draft"` without an extra approval step. Never overwrite an existing companion file unless the user's existing explicit authorization covers that target; otherwise save a separate draft or ask if the overwrite is necessary.
+- Store `skill: "english-reading-companion"` and `skill_version: "2.8.4"` in the saved file's hidden metadata comment.
 - Include the same skill name and version in the concise chat handoff that links or summarizes a saved artifact.
 - Stop and report a version mismatch instead of guessing which version is active.
 
@@ -49,7 +56,7 @@ Treat the four layers as a reasoning sequence, not four independent labels.
 - Make each analysis point serve one of two outcomes: deeper understanding of this text or a reusable reading habit for the next text.
 - Explain meaning in context before discussing grammar.
 - Prefer meaning chunks, idioms, collocations, and natural expressions over isolated vocabulary.
-- Select only 3–5 high-value expressions. Favor depth over coverage.
+- For a full companion, select only 3–5 high-value expressions. Favor depth over coverage.
 - When a cultural, historical, or role-identity term is necessary to understand the article's situation or stakes, include one such gateway term among the 3–5. Give only the minimal stable context needed to unlock the text; do not force one into articles that do not need it, and do not turn it into unsupported background history.
 - Reduce line-by-line Chinese translation. Translate only where it unlocks meaning or contrast.
 - Use Chinese to secure accurate contextual understanding. Add short Simple English only as a bridge from the source expression to English meaning, not as a parallel translation of the full analysis.
@@ -74,9 +81,11 @@ Apply these rules only when their trigger condition materially changes understan
 
 ## Workflow
 
+Source verification applies to the requested analysis. Steps 2–10 describe a full companion; focused follow-ups use only the relevant parts. Steps 11–12 apply only to project-series delivery.
+
 ### 1. Verify the source text
 
-- Use the source file under `content/sources/` as authoritative. If the user supplies corrected text or an image, save it there first after confirming the target filename.
+- In project-series mode, use the source file under `content/sources/` as authoritative. If the user supplies corrected text or an image, resolve the target from the current request and naming rules, then save the authorized correction there first. Ask only if the source identity or overwrite target remains unclear or the required overwrite is not authorized. Outside this mode, use the user's latest supplied or requested source without requiring a project file.
 - Silently correct obvious OCR artifacts only when certain; flag any uncertainty that affects interpretation.
 - If a malformed phrase changes the meaning, state the assumed reading briefly.
 
@@ -144,7 +153,7 @@ Make this the signature section. Inspect seemingly simple phrases for:
 - phrases whose emotional force depends on earlier story details;
 - ordinary wording deliberately redefined by the ending.
 
-Use the diagnostic and examples in [references/method.md](references/method.md).
+Consult the relevant sections of [references/method.md](references/method.md) when contextual meaning is difficult to determine, explanations overlap across sections, or interpretation depth needs calibration. Do not reread it when the available context is sufficient.
 
 Never restrict this section to formal idioms. A plain sentence can carry the deepest subtext.
 
@@ -178,9 +187,15 @@ Use `## English Replay / 用英语再走一遍` as the default active-output clo
 
 ### 11. Save and hand off the artifact
 
+The file and metadata requirements in this step apply to project-series mode. For general companion requests, hand off in the requested format; do not impose the project directory or HONY naming scheme.
+
 - Write the completed new HONY companion to `content/readings/HONY-NNN-english-slug.md` using the source file's `HONY-NNN` ID and slug. Do not rename existing pure-numeric artifacts.
 - Begin the file with an HTML comment containing `article_id`, `source_title`, `companion_title`, `skill`, `skill_version`, `generated_at`, `regression_report`, and `status`. This preserves local validation metadata without presenting engineering fields to the reader.
-- Verify the file exists and report its local path in the final handoff.
+- Verify the file exists and passes the direct artifact checks before any external save.
+
+### 12. Save the same artifact to 得到大脑
+
+Only when this is a full project-series companion under `content/readings/`, the local file has passed direct artifact checks, and the applicable project authorization covers this private save, read [references/getnote-delivery.md](references/getnote-delivery.md) and complete delivery before the final handoff. Do not read this reference for general companion requests, focused one-layer answers, or A/B evaluation artifacts. Report the actual local-save and 得到大脑 delivery results separately.
 
 ## Default output
 
@@ -199,7 +214,7 @@ Use the following order, adapting section depth to the article:
 11. **English Replay / 用英语再走一遍** — three-sentence `Read once` plus a supported 2–3-sentence `Your Turn`
 12. **Sentence Workshop** — optional; place near the sentence it supports if that reads better
 
-Do not force empty or repetitive sections. Merge adjacent sections when they would repeat the same core insight or when the article does not contain enough independent material to justify separate treatment. Base this decision on information density and complexity, not word count alone. Always preserve Story, Language, Thinking, and Beyond the Words.
+Do not force empty or repetitive sections. Merge adjacent sections when they would repeat the same core insight or when the article does not contain enough independent material to justify separate treatment. Base this decision on information density and complexity, not word count alone. For a full companion, preserve Story, Language, Thinking, and Beyond the Words as reading dimensions; do not invent an insight to fill a section. Focused answers need only their relevant dimensions.
 
 ## Interaction rules
 
@@ -211,12 +226,12 @@ Do not force empty or repetitive sections. Merge adjacent sections when they wou
 
 ## Quality gate
 
-Before responding, verify:
+Before delivering a full companion, verify the applicable items below. For a focused answer, check only source accuracy, the requested explanation, and any relevant interpretation or language constraints; do not require the full expression count, Reading Route, four-layer output, or English Replay.
 
 - Can the reader retell the story and identify its turn?
 - Are the selected expressions genuinely high-value and limited to 3–5, with three as the default for a very short or concentrated text?
 - When the article depends on a cultural, historical, or role-identity gateway term, did the selection include one with only the minimal context needed?
-- Did Beyond the Words reveal at least one meaning unavailable from literal translation alone?
+- Did the analysis check for contextual meaning that literal reading could miss, explain it when supported, and avoid forcing a hidden meaning when the text provides none?
 - Is the interpretation supported by the text?
 - For sensitive or fate-like material, did the analysis keep textual fact, implication, and reader association distinct?
 - Did the analysis explain how language creates the story's effect?
@@ -225,8 +240,6 @@ Before responding, verify:
 - Are its target expressions, sentence starters, and content route specific and light enough to support recall without becoming a second lesson or a model answer?
 - For sensitive material, does the Replay preserve what remains unresolved rather than converting a moment of change into complete resolution?
 - Did the response avoid unnecessary full translation and grammar overload?
-- Does every section add information not already fully explained elsewhere?
-- Has each core insight been assigned one primary section?
-- Can any repeated paragraph be replaced with a brief reference without losing meaning?
+- Is each core insight fully explained only once, with other sections adding unique information or a necessary brief reference, and repetition that adds no information removed?
 - Does the Reading Route give a useful next step without repeating the summary?
 - Does every Key Expressions entry use the compact Simple English, Meaning, and Why it matters sequence when accurate simplification is possible, and use Try it only when the example is natural and level-appropriate?

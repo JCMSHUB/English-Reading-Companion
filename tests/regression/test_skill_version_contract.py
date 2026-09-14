@@ -47,6 +47,27 @@ class SkillVersionContractTest(unittest.TestCase):
         self.assertIn("Never overwrite an existing companion file", skill_text)
         self.assertIn("### 11. Save and hand off the artifact", skill_text)
 
+    def test_full_article_companion_saves_same_artifact_to_getnote(self):
+        skill_text = (
+            SKILLS / "english-reading-companion" / "SKILL.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("### 12. Save the same artifact to 得到大脑", skill_text)
+        reference = SKILLS / "english-reading-companion" / "references" / "getnote-delivery.md"
+        self.assertIn("(references/getnote-delivery.md)", skill_text)
+        delivery_text = reference.read_text(encoding="utf-8")
+        self.assertNotIn("getnote save --content-file", skill_text)
+        self.assertIn("Upload the exact saved Markdown file", delivery_text)
+        self.assertIn("whose name is exactly `英语伴读`", delivery_text)
+        self.assertIn("following returned pagination", delivery_text)
+        self.assertIn("Do not hard-code, remember, or guess the ID", delivery_text)
+        self.assertIn("getnote save --content-file <reading-path>", delivery_text)
+        self.assertIn("--topic-id <topic-id>", delivery_text)
+        self.assertIn("saved file's SHA-256", delivery_text)
+        self.assertIn("data.note.note_id", delivery_text)
+        self.assertIn("data.note.note_url", delivery_text)
+        self.assertIn("keep the local artifact", delivery_text)
+
     def test_full_article_companion_quotes_the_authoritative_source(self):
         skill_text = (
             SKILLS / "english-reading-companion" / "SKILL.md"
@@ -225,6 +246,7 @@ class SkillVersionContractTest(unittest.TestCase):
     def test_referenced_files_exist(self):
         expected = [
             SKILLS / "english-reading-companion" / "references" / "method.md",
+            SKILLS / "english-reading-companion" / "references" / "getnote-delivery.md",
             SKILLS
             / "english-reading-ab-workflow"
             / "references"

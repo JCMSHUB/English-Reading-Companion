@@ -1,0 +1,10 @@
+# 得到大脑 delivery
+
+Use this procedure only after the entrypoint has established project-series scope, successful local artifact checks, and applicable project authorization for this private save. Authorization remains in the project's AGENTS.md; this reference does not grant it.
+
+- Upload the exact saved Markdown file; do not create a shortened, expanded, or reformatted copy.
+- Resolve the target at runtime with `getnote kbs -o json`, following returned pagination until all user-owned or manageable knowledge bases have been checked. Require exactly one knowledge base whose name is exactly `英语伴读`, and use its returned string `topic_id`. Do not hard-code, remember, or guess the ID; if the target is missing or ambiguous, keep the local artifact and stop the external step with a clear report.
+- Use the companion H1 text as the note title. Save long Markdown with `getnote save --content-file <reading-path> --title <companion-title> --topic-id <topic-id> --idempotency-key <key> -o json`. Derive the ASCII idempotency key from the article ID and the saved file's SHA-256 so an uncertain retry of identical content reuses the same key.
+- Count the external save as successful only when the command exits with code 0, returns `success=true`, and contains non-empty string values for `data.note.note_id`, `data.note.title`, and `data.note.note_url`. Keep the note private; do not create a public share link.
+- If the result is pending, processing, timed out, or otherwise uncertain, inspect the returned task with `getnote task <task_id> -o json` instead of submitting the file again. Retry only when the service explicitly marks the failure retryable and the original operation is confirmed not to have succeeded.
+- In the final handoff, report both the verified local path and the private 得到大脑 note link. If the external step fails, say separately that the local artifact was saved but 得到大脑 delivery was not completed; do not describe the overall delivery as complete.
