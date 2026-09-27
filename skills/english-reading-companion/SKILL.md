@@ -5,8 +5,8 @@ description: "Use the established English Reading Companion method for elementar
 
 # English Reading Companion
 
-**Current version:** 2.8.5
-**Release:** 2026-09-18 · Instruction-only update; validation recorded in the project CHANGELOG.md entry for 2.8.5.
+**Current version:** 2.8.6
+**Release:** 2026-09-27 · Instruction-only update; validation recorded in the project CHANGELOG.md entry for 2.8.6.
 
 Apply the user's stable reading method. Build English intuition rather than produce a translation or grammar lecture.
 
@@ -22,7 +22,7 @@ Apply the user's stable reading method. Build English intuition rather than prod
 - Read `VERSION` before producing any analysis and require it to match the version declared above and in `agents/openai.yaml`.
 - Begin every user-visible analysis with this exact line immediately after the title:
 
-  `> Skill: english-reading-companion v2.8.5`
+  `> Skill: english-reading-companion v2.8.6`
 
 - Include the same skill name and version in the concise chat handoff that links or summarizes a saved artifact.
 - Stop and report a version mismatch instead of guessing which version is active.
