@@ -29,30 +29,47 @@ class SkillVersionContractTest(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
         self.assertIn(f"> Skill: english-reading-companion v{version}", skill_text)
-        self.assertIn(f'skill_version: "{version}"', skill_text)
-        self.assertIn("hidden metadata comment", skill_text)
-        self.assertNotIn("YAML frontmatter", skill_text)
+        project_text = (
+            SKILLS / "english-reading-companion" / "references" / "project-series.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn(f'skill_version: "{version}"', project_text)
+        self.assertIn("hidden metadata comment", project_text)
+        for field in (
+            "article_id", "source_title", "companion_title", "skill",
+            "skill_version", "generated_at", "regression_report", "status",
+        ):
+            self.assertIn(f"`{field}`", project_text)
+        self.assertNotIn("YAML frontmatter", project_text)
 
     def test_full_article_companion_requires_local_artifact(self):
         skill_text = (
             SKILLS / "english-reading-companion" / "SKILL.md"
         ).read_text(encoding="utf-8")
 
+        self.assertIn("(references/project-series.md)", skill_text)
+        self.assertIn("before generating or revising", skill_text)
         self.assertIn(
-            "save the completed analysis as `content/readings/HONY-NNN-english-slug.md`",
+            "Do not read this reference for general companion requests, focused answers, or A/B evaluation artifacts",
             skill_text,
         )
-        self.assertIn("do not leave the result only in chat", skill_text)
-        self.assertIn("`content/sources/`", skill_text)
-        self.assertIn("Never overwrite an existing companion file", skill_text)
-        self.assertIn("### 11. Save and hand off the artifact", skill_text)
+        project_text = (
+            SKILLS / "english-reading-companion" / "references" / "project-series.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn("content/readings/HONY-NNN-english-slug.md", project_text)
+        self.assertIn("do not leave the result only in chat", project_text)
+        self.assertIn("`content/sources/`", project_text)
+        self.assertIn("Never overwrite an existing companion file", project_text)
+        self.assertIn('status: "draft"', project_text)
+        self.assertIn("Original Text reproduces the authoritative source", project_text)
+        self.assertIn("does not authorize updating", project_text)
 
     def test_full_article_companion_saves_same_artifact_to_getnote(self):
         skill_text = (
             SKILLS / "english-reading-companion" / "SKILL.md"
         ).read_text(encoding="utf-8")
 
-        self.assertIn("### 12. Save the same artifact to 得到大脑", skill_text)
+        self.assertIn("the local file has passed direct artifact checks", skill_text)
+        self.assertIn("the applicable project authorization covers this private save", skill_text)
         reference = SKILLS / "english-reading-companion" / "references" / "getnote-delivery.md"
         self.assertIn("(references/getnote-delivery.md)", skill_text)
         delivery_text = reference.read_text(encoding="utf-8")
@@ -168,6 +185,27 @@ class SkillVersionContractTest(unittest.TestCase):
         self.assertIn("Textual fact", method_text)
         self.assertIn("Reader association", method_text)
 
+    def test_companion_reference_links_resolve(self):
+        skill_dir = SKILLS / "english-reading-companion"
+        paths = [skill_dir / "SKILL.md", *sorted((skill_dir / "references").glob("*.md"))]
+        for path in paths:
+            text = path.read_text(encoding="utf-8")
+            for target in re.findall(r"\[[^\]]+\]\(([^)]+)\)", text):
+                if "://" in target:
+                    continue
+                filename, _, anchor = target.partition("#")
+                destination = path.parent / filename if filename else path
+                self.assertTrue(destination.is_file(), f"{path}: {target}")
+                if anchor:
+                    headings = re.findall(
+                        r"^#{1,6} (.+)$", destination.read_text(encoding="utf-8"), re.M
+                    )
+                    anchors = {
+                        re.sub(r"[^\w\- ]", "", heading.lower()).replace(" ", "-")
+                        for heading in headings
+                    }
+                    self.assertIn(anchor, anchors, f"{path}: {target}")
+
     def test_companion_metadata_is_hidden_from_readers(self):
         required_fields = [
             "article_id:",
@@ -246,6 +284,7 @@ class SkillVersionContractTest(unittest.TestCase):
     def test_referenced_files_exist(self):
         expected = [
             SKILLS / "english-reading-companion" / "references" / "method.md",
+            SKILLS / "english-reading-companion" / "references" / "project-series.md",
             SKILLS / "english-reading-companion" / "references" / "getnote-delivery.md",
             SKILLS
             / "english-reading-ab-workflow"

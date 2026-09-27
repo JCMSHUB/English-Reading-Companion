@@ -1,6 +1,23 @@
 # Method Reference
 
-Use this reference when identifying subtle meaning, resolving overlap among sections, or checking whether an analysis is sufficiently deep.
+Use the entrypoint's Method reference routing to identify an unresolved question, then read only the relevant section. Skip this reference when the entrypoint and source are sufficient; canonical examples are optional.
+
+## Contents
+
+- [Beyond the Words diagnostic](#beyond-the-words-diagnostic)
+- [Canonical examples from the project](#canonical-examples-from-the-project)
+- [Layer boundaries](#layer-boundaries)
+- [Section ownership](#section-ownership)
+- [Simple English bridge](#simple-english-bridge)
+- [English Replay pattern](#english-replay-pattern)
+- [Depth calibration](#depth-calibration)
+- [Conditional calibration patterns](#conditional-calibration-patterns)
+  - [Concentrated short reversal](#concentrated-short-reversal)
+  - [Sensitive autobiographical boundary](#sensitive-autobiographical-boundary)
+  - [Role-identity gateway](#role-identity-gateway)
+  - [Structural anchors](#structural-anchors)
+- [Sentence Workshop pattern](#sentence-workshop-pattern)
+- [Common failure modes](#common-failure-modes)
 
 ## Beyond the Words diagnostic
 

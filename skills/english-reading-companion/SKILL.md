@@ -5,29 +5,25 @@ description: "Use the established English Reading Companion method for elementar
 
 # English Reading Companion
 
-**Current version:** 2.8.4
-**Release:** 2026-09-14 · Instruction-only update; validation recorded in the project CHANGELOG.md entry for 2.8.4.
+**Current version:** 2.8.5
+**Release:** 2026-09-18 · Instruction-only update; validation recorded in the project CHANGELOG.md entry for 2.8.5.
 
 Apply the user's stable reading method. Build English intuition rather than produce a translation or grammar lecture.
 
 ## Delivery scope
 
-- Use **project-series mode** only when generating a full numbered companion for the `English-Reading-Companion` project. Resolve this from the requested target project and its applicable `AGENTS.md`, not merely from a folder name or an English article. In this mode, use the project's source, naming, local-save, and private-archive contract below; the project's recorded authorization governs external delivery.
+- Use **project-series mode** only when generating or revising a full numbered companion for the `English-Reading-Companion` project. Resolve this from the requested target project and its applicable `AGENTS.md`, not merely from a folder name or an English article. In this mode, read [references/project-series.md](references/project-series.md) before generating or revising the companion to establish the source, article identity, target path, and overwrite authorization. Follow its local-save contract; the project's recorded authorization governs external delivery. Do not read this reference for general companion requests, focused answers, or A/B evaluation artifacts.
 - For general companion requests outside that project, use the user's supplied text, image, or requested source directly and deliver in chat or the requested format. Do not require `content/sources/`, a HONY ID, local saving, or private archiving. Focused answers and A/B evaluation artifacts are not project-series deliverables.
 
 - The full output structure, four-layer coverage, expression count, and full quality gate apply only to a full companion, including an A/B skilled branch. For a focused follow-up within this method, apply only the relevant explanation and checks; do not add a full template or Replay. An A/B baseline follows its independent baseline contract and does not apply this skill.
 
 ## Version visibility
 
-- Read `VERSION` before producing any analysis and require it to match the version declared above.
+- Read `VERSION` before producing any analysis and require it to match the version declared above and in `agents/openai.yaml`.
 - Begin every user-visible analysis with this exact line immediately after the title:
 
-  `> Skill: english-reading-companion v2.8.4`
+  `> Skill: english-reading-companion v2.8.5`
 
-- In project-series mode, save the completed analysis as `content/readings/HONY-NNN-english-slug.md`; do not leave the result only in chat. Then follow the conditional external-delivery step 12 before the final handoff. Existing pure-numeric files retain their historical names.
-- For a project-series companion, resolve the source from the user's request and existing project files. Save newly supplied source text under `content/sources/` before generating the companion. Reuse an existing article ID and filename; for a new article, determine the next unused HONY ID from the established sequence and derive a lowercase English slug from the title or content. New HONY IDs begin at `HONY-001`; preserve existing names and follow any newer user naming rule. If no source title is supplied, label it untitled rather than inventing an original title. Ask only when source identity, numbering conflicts, or the overwrite target cannot be resolved reliably; missing filename components alone do not require confirmation.
-- Save new project-series analyses with `status: "draft"` without an extra approval step. Never overwrite an existing companion file unless the user's existing explicit authorization covers that target; otherwise save a separate draft or ask if the overwrite is necessary.
-- Store `skill: "english-reading-companion"` and `skill_version: "2.8.4"` in the saved file's hidden metadata comment.
 - Include the same skill name and version in the concise chat handoff that links or summarizes a saved artifact.
 - Stop and report a version mismatch instead of guessing which version is active.
 
@@ -69,6 +65,19 @@ Treat the four layers as a reasoning sequence, not four independent labels.
 - Keep the experience sustainable: clear, thoughtful, and normally readable in 5–15 minutes.
 - Use Chinese for explanation and retain the important English wording being studied.
 - Use short labels and short paragraphs to make scanning easy; do not use tables for the main analysis, because they read poorly on narrow screens.
+
+## Method reference routing
+
+When this entrypoint and the complete source resolve the question, do not read the method reference. For an unresolved question, locate the relevant heading below and read only the section needed; reuse material already read. A topic or keyword alone does not require loading the reference, and canonical examples are not required reading.
+
+| Unresolved question | Relevant section |
+|---|---|
+| Literal wording is clear, but implication, tone, or narrative callbacks are not | [Beyond the Words diagnostic](references/method.md#beyond-the-words-diagnostic) |
+| Layer roles are unclear, or the line, expressions, and theme repeat one insight | [Layer boundaries](references/method.md#layer-boundaries) / [Section ownership](references/method.md#section-ownership) |
+| Simplification may erase tone, uncertainty, duration, or incomplete resolution | [Simple English bridge](references/method.md#simple-english-bridge) |
+| Replay loses the turn or makes a temporary shift sound fully resolved | [English Replay pattern](references/method.md#english-replay-pattern) |
+| A short reversal, sensitive narrative, role word, or fragmented structure needs calibration | The matching subsection of [Conditional calibration patterns](references/method.md#conditional-calibration-patterns) |
+| Explanation depth is unclear, or detailed sentence parsing is needed | [Depth calibration](references/method.md#depth-calibration) / [Sentence Workshop pattern](references/method.md#sentence-workshop-pattern) |
 
 ## Conditional calibration rules
 
@@ -153,8 +162,6 @@ Make this the signature section. Inspect seemingly simple phrases for:
 - phrases whose emotional force depends on earlier story details;
 - ordinary wording deliberately redefined by the ending.
 
-Consult the relevant sections of [references/method.md](references/method.md) when contextual meaning is difficult to determine, explanations overlap across sections, or interpretation depth needs calibration. Do not reread it when the available context is sufficient.
-
 Never restrict this section to formal idioms. A plain sentence can carry the deepest subtext.
 
 Treat this as the primary section for full analysis of non-literal meaning. Avoid repeating an explanation already completed elsewhere unless adding a distinct contextual layer.
@@ -187,11 +194,7 @@ Use `## English Replay / 用英语再走一遍` as the default active-output clo
 
 ### 11. Save and hand off the artifact
 
-The file and metadata requirements in this step apply to project-series mode. For general companion requests, hand off in the requested format; do not impose the project directory or HONY naming scheme.
-
-- Write the completed new HONY companion to `content/readings/HONY-NNN-english-slug.md` using the source file's `HONY-NNN` ID and slug. Do not rename existing pure-numeric artifacts.
-- Begin the file with an HTML comment containing `article_id`, `source_title`, `companion_title`, `skill`, `skill_version`, `generated_at`, `regression_report`, and `status`. This preserves local validation metadata without presenting engineering fields to the reader.
-- Verify the file exists and passes the direct artifact checks before any external save.
+For project-series mode, follow the local-save and direct-check requirements in [references/project-series.md](references/project-series.md), already read before generation. Then apply the conditional external-delivery step below before the final handoff. For general companion requests, hand off in the requested format.
 
 ### 12. Save the same artifact to 得到大脑
 
